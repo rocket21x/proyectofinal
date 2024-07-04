@@ -201,6 +201,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         ordenEntidad.setOrdenPlatillos(ordenPlatillos);
 
         this.ordenDaoImpl.actualizar(ordenEntidad);
+        JOptionPane.showMessageDialog(null,"Se ha creado la orden");
     }
 
     private PlatilloEntity convertirDTOaEntity(PlatilloDTO platilloDTO) {

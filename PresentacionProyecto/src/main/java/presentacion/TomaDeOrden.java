@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.ControladorAdministracionSistema;
-import objetoNegocio.Platillo;
+
 
 public class TomaDeOrden extends javax.swing.JFrame {
 
     ControladorAdministracionSistema controladorAdministracionSistema;
-    private static int contadorOrdenes = 1;
+ 
     
     public TomaDeOrden() {
         initComponents();
@@ -47,6 +47,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtNota = new javax.swing.JTextField();
         lblNumeroMesa = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,7 +95,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
         jLabel1.setText("Seleccione los platillos:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 18, 220, -1));
 
-        jLabel2.setText("Platillo de la orden:");
+        jLabel2.setText("Platillos de la orden:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 18, 160, -1));
 
         btnMesa2.setText("2");
@@ -151,7 +152,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnAgregarPlatilloActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, 140, 50));
+        getContentPane().add(btnAgregarPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, 140, 40));
 
         btnRestarCantidad.setText("-");
         btnRestarCantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +160,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnRestarCantidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRestarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 530, 80, 50));
+        getContentPane().add(btnRestarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 520, 80, 50));
 
         btnSumarCantidad.setText("+");
         btnSumarCantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +168,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnSumarCantidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSumarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 530, 80, 50));
+        getContentPane().add(btnSumarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 520, 80, 50));
 
         btnTerminarOrden.setText("Terminar orden");
         btnTerminarOrden.addActionListener(new java.awt.event.ActionListener() {
@@ -175,17 +176,20 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnTerminarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTerminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, 140, 50));
+        getContentPane().add(btnTerminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 580, 140, 40));
 
         jLabel3.setText("Seleccionar Mesa:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
         jLabel4.setText("Agregar Nota adicional:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 610, -1, -1));
-        getContentPane().add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 640, 250, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
+        getContentPane().add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 630, 250, 40));
 
         lblNumeroMesa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 50, 20));
+
+        jButton1.setText("Volver");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 140, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,9 +232,11 @@ public class TomaDeOrden extends javax.swing.JFrame {
         
         int numMesa = Integer.parseInt(this.lblNumeroMesa.getText()); 
         
+        int numeroOrden = (int)(System.currentTimeMillis()&0xffffff);
+        
         OrdenDTO ordenDTO = new OrdenDTO();
         ordenDTO.setNumeroMesa(numMesa);
-        ordenDTO.setNumeroOrden(contadorOrdenes++);
+        ordenDTO.setNumeroOrden(numeroOrden);
         ordenDTO.setNotas(txtNota.getText());
         ordenDTO.setEstado("Ingresada");
         ordenDTO.setOrdenPlatillos(new ArrayList<>());
@@ -368,6 +374,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
     private javax.swing.JButton btnRestarCantidad;
     private javax.swing.JButton btnSumarCantidad;
     private javax.swing.JButton btnTerminarOrden;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

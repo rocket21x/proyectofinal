@@ -4,11 +4,6 @@ import daos.PlatilloDaoImpl;
 import objetoNegocio.Platillo;
 import entidades.PlatilloEntity;
 
-
-/**
- *
- * @author osval
- */
 public class FacadeAgregarPlatillo implements IAgregarPlatillo{
 
     PlatilloDaoImpl platilloDaoImpl;

@@ -4,10 +4,6 @@ package negocio;
 import dtos.PlatilloDTO;
 import objetoNegocio.Platillo;
 
-/**
- *
- * @author osval
- */
 public class ControladorAgregarPlatillo {
     
     FacadeAgregarPlatillo facadeAgregarPlatillo;
