@@ -1,0 +1,14 @@
+entidades\OrdenPlatilloId_.class
+entidades\OrdenPlatilloEntity.class
+entidades\PlatilloEntity_.class
+daos\PlatilloDaoImpl.class
+entidades\PlatilloEntity.class
+entidades\OrdenEntity_.class
+entidades\UsuarioEntity_.class
+entidades\OrdenEntity.class
+daos\UsuarioDaoImpl.class
+daos\IDao.class
+entidades\OrdenPlatilloId.class
+entidades\OrdenPlatilloEntity_.class
+daos\OrdenDaoImpl.class
+entidades\UsuarioEntity.class
