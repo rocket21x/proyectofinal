@@ -250,8 +250,13 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         List<PlatilloEntity> platillos = this.platilloDaoImpl.obtenerTodos();
         modelo.setRowCount(0);
         for (OrdenPlatilloEntity orden : listaOrdenes) {
-            Object[] fila = {orden.getOrden().getId(),orden.getPlatillo().getNombre()};
+            if (id.equals(orden.getOrden().getId())) {
+                Object[] fila = {orden.getOrden().getId(),orden.getPlatillo().getNombre()};
             modelo.addRow(fila);
+            
+            }
+            
+            
         }
     }
     
