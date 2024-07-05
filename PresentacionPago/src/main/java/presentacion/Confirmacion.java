@@ -79,7 +79,7 @@ public class Confirmacion extends javax.swing.JFrame {
 
         PagoEntity nuevoPago = new PagoEntity(0, (float) monto, metodo, descripcion, "2023-06-28"); // El ID se asignará automáticamente
         nuevoPago.setMetodoPago(metodo);
-        pagoDAO.crear(nuevoPago);
+//        pagoDAO.crear(nuevoPago);
 
         new PagoInicio().setVisible(true);
         dispose();

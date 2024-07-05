@@ -1,4 +1,3 @@
-
 package negocio;
 
 import daos.OrdenDaoImpl;
@@ -28,7 +27,7 @@ import presentacion.MenuMeseros;
 import presentacion.Registro;
 import presentacion.TomaDeOrden;
 
-public class FacadeAdministracionSistema implements IAdministracionSistema{
+public class FacadeAdministracionSistema implements IAdministracionSistema {
 
     private PlatilloDaoImpl platilloDaoImpl;
     private OrdenDaoImpl ordenDaoImpl;
@@ -42,19 +41,19 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     private Registro registro;
     private TomaDeOrden tomaDeOrden;
     private AdministrarOrdenes administrarOrdenes;
- 
+
     private static List<PlatilloDTO> listaPlatillosSeleccionados = new ArrayList<>();
-    
+
     public static UsuarioDTO usuarioActivo = new UsuarioDTO();
-    
-    public FacadeAdministracionSistema(){
+
+    public FacadeAdministracionSistema() {
         this.platilloDaoImpl = new PlatilloDaoImpl();
         this.ordenDaoImpl = new OrdenDaoImpl();
         this.usuarioDaoImpl = new UsuarioDaoImpl();
         this.ordenplatilloDAOImpl = new OrdenPlatilloDaoImpl();
-        
+
     }
-    
+
     @Override
     public void actualizarTablaPlatillos(DefaultTableModel modelo) {
         List<PlatilloEntity> listaPlatillos = this.platilloDaoImpl.obtenerTodos();
@@ -69,19 +68,19 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     public void abrirInicioSesion() {
         this.inicioSesion = new InicioSesion();
         this.inicioSesion.setVisible(true);
-        
+
     }
 
     @Override
     public void abrirRegistro() {
-          this.registro = new Registro();
+        this.registro = new Registro();
         this.registro.setVisible(true);
     }
 
     @Override
     public void abrirMenu() {
         this.menu = new Menu();
-        this.menu.setVisible(true);           
+        this.menu.setVisible(true);
     }
 
     @Override
@@ -99,11 +98,16 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
                 JOptionPane.showMessageDialog(null, "Autenticación exitosa", "Inicio de Sesión", JOptionPane.INFORMATION_MESSAGE);
                 usuarioActivo.setNombre(usuarioBO.getNombre());
                 usuarioActivo.setContraseña(usuarioBO.getContraseña());
-                if (null != usuarioEntity.getRol()) switch (usuarioEntity.getRol()) {
-                    case "Gerente" -> this.abrirMenu();
-                    case "Mesero" -> this.abrirMenuMesero();
-                    case "Cocinero" -> this.abrirMenuCocinero();
-                    default -> {
+                if (null != usuarioEntity.getRol()) {
+                    switch (usuarioEntity.getRol()) {
+                        case "Gerente" ->
+                            this.abrirMenu();
+                        case "Mesero" ->
+                            this.abrirMenuMesero();
+                        case "Cocinero" ->
+                            this.abrirMenuCocinero();
+                        default -> {
+                        }
                     }
                 }
                 return;
@@ -111,7 +115,6 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         }
         JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
     }
-
 
     @Override
     public void abrirMenuCocinero() {
@@ -134,7 +137,6 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
             modelo.addRow(fila);
         }
     }
-    
 
     @Override
     public void abrirTomaDeOrden() {
@@ -149,7 +151,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
 
     @Override
     public void actualizarTablaPlatillosSeleccionados(DefaultTableModel modelo) {
-           modelo.setRowCount(0);
+        modelo.setRowCount(0);
         for (PlatilloDTO platillo : listaPlatillosSeleccionados) {
             Object[] fila = {platillo.getId(), platillo.getNombre(), platillo.getDescripcion(), platillo.getPrecio(), platillo.getCantidad()};
             modelo.addRow(fila);
@@ -182,7 +184,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         while (iterator.hasNext()) {
             PlatilloDTO platillo = iterator.next();
             if (platillo.getId() == platilloDTO.getId()) {
-                iterator.remove(); 
+                iterator.remove();
                 break;
             }
         }
@@ -196,7 +198,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         ordenEntidad.setNotas(ordenBO.getNotas());
         ordenEntidad.setEstado("Pendiente");
         ordenEntidad.setTotal(ordenBO.getTotal());
-        
+
         List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
 
         for (PlatilloDTO platilloDTO : listaPlatillosSeleccionados) {
@@ -211,18 +213,18 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         ordenEntidad.setOrdenPlatillos(ordenPlatillos);
 
         this.ordenDaoImpl.crear(ordenEntidad);
-        JOptionPane.showMessageDialog(null,"Se ha creado la orden");
+        JOptionPane.showMessageDialog(null, "Se ha creado la orden");
     }
 
     private PlatilloEntity convertirDTOaEntity(PlatilloDTO platilloDTO) {
-    PlatilloEntity platilloEntity = new PlatilloEntity();
-    platilloEntity.setIdPlatillo(platilloDTO.getId());
-    platilloEntity.setNombre(platilloDTO.getNombre());
-    platilloEntity.setPrecio(platilloDTO.getPrecio());
-    platilloEntity.setCantidad(platilloDTO.getCantidad());
-    platilloEntity.setDescripcion(platilloDTO.getDescripcion());
-    return platilloEntity;
-}
+        PlatilloEntity platilloEntity = new PlatilloEntity();
+        platilloEntity.setIdPlatillo(platilloDTO.getId());
+        platilloEntity.setNombre(platilloDTO.getNombre());
+        platilloEntity.setPrecio(platilloDTO.getPrecio());
+        platilloEntity.setCantidad(platilloDTO.getCantidad());
+        platilloEntity.setDescripcion(platilloDTO.getDescripcion());
+        return platilloEntity;
+    }
 
     @Override
     public void actualizarOrden(OrdenDTO orden) {
@@ -231,7 +233,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         ordenEntidad.setNumeroMesa(orden.getNumeroMesa());
         ordenEntidad.setNumeroOrden(orden.getNumeroOrden());
         ordenEntidad.setEstado(orden.getEstado());
-        
+
         List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
 
         for (PlatilloDTO platilloDTO : listaPlatillosSeleccionados) {
@@ -243,24 +245,23 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
             ordenPlatillos.add(ordenPlatillo);
         }
         ordenEntidad.setOrdenPlatillos(ordenPlatillos);
-        
+
         this.ordenDaoImpl.actualizar(ordenEntidad);
     }
 
     @Override
-    public void actualizarTablaOrdenPlatillo(DefaultTableModel modelo,Long id) {
-        
+    public void actualizarTablaOrdenPlatillo(DefaultTableModel modelo, Long id) {
+
         List<OrdenPlatilloEntity> listaOrdenes = this.ordenplatilloDAOImpl.obtenerTodos();
         List<PlatilloEntity> platillos = this.platilloDaoImpl.obtenerTodos();
         modelo.setRowCount(0);
         for (OrdenPlatilloEntity orden : listaOrdenes) {
             if (id.equals(orden.getOrden().getId())) {
-                Object[] fila = {orden.getOrden().getId(),orden.getPlatillo().getNombre()};
-            modelo.addRow(fila);
-            
+                Object[] fila = {orden.getOrden().getId(), orden.getPlatillo().getNombre()};
+                modelo.addRow(fila);
+
             }
-            
-            
+
         }
     }
 
@@ -270,9 +271,8 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     }
 
     public void abrirPagoInicio() {
-        this.pagoInicio = new PagoInicio();
-        this.pagoInicio.setVisible(true);       
+//        this.pagoInicio = new PagoInicio();
+        // this.pagoInicio.setVisible(true);       
     }
-    
-}
 
+}

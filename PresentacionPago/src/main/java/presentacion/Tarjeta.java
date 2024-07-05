@@ -26,7 +26,7 @@ public class Tarjeta extends javax.swing.JFrame {
 
         txtNoOrden.setText(String.valueOf(orden.getId()));
         txtMesa.setText(String.valueOf(orden.getNumeroMesa()));
-        txtPlatillos.setText(orden.getPlatillos().toString()); // Ajustar según la estructura de detalles
+//        txtPlatillos.setText(orden.getPlatillos().toString()); // Ajustar según la estructura de detalles
         txtTotal.setText(String.valueOf(orden.getTotal()));
     }
 

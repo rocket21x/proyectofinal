@@ -6,17 +6,23 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import java.util.Optional;
+import negocio.ControladorAdministracionSistema;
 
 public class PagoInicio extends javax.swing.JFrame {
 
     private OrdenDaoImpl ordenDAO;
+    ControladorAdministracionSistema controladorAdministracionSistema;
+            
+    
 
     public PagoInicio() {
         initComponents();
         transparenciaBtn();
         setLocationRelativeTo(null);
+        this.controladorAdministracionSistema = new ControladorAdministracionSistema();
+        this.controladorAdministracionSistema.actualizarTablaOrdenes((DefaultTableModel) TablaPago.getModel());
         this.ordenDAO = new OrdenDaoImpl();
-        cargarOrden();
+        //cargarOrden();
     }
 
     @SuppressWarnings("unchecked")
@@ -73,9 +79,7 @@ public class PagoInicio extends javax.swing.JFrame {
         TablaPago.setForeground(new java.awt.Color(255, 255, 255));
         TablaPago.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "No.Orden", "Mesa", "Platillo", "Total"
@@ -164,14 +168,14 @@ public class PagoInicio extends javax.swing.JFrame {
         TablaPago.setOpaque(false);
         jScrollPane1.setOpaque(false);
     }
-
+/**
     public void cargarOrden() {
         DefaultTableModel modelo = (DefaultTableModel) TablaPago.getModel();
         modelo.setRowCount(0);
         try {
             List<OrdenEntity> ordenes = ordenDAO.obtenerTodos();
             for (OrdenEntity orden : ordenes) {
-                modelo.addRow(new Object[]{orden.getId(), orden.getNumeroMesa(), orden.getPlatillos(), orden.getTotal()});
+                //modelo.addRow(new Object[]{orden.getId(), orden.getNumeroMesa(), orden.getPlatillos(), orden.getTotal()});
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al cargar las órdenes: " + e.getMessage());
@@ -179,14 +183,14 @@ public class PagoInicio extends javax.swing.JFrame {
         }
 
     }
-
+**/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEfectivo;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton BtnTarjeta;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JTable TablaPago;
+    public static javax.swing.JTable TablaPago;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

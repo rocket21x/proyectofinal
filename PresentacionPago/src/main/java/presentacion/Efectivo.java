@@ -27,7 +27,7 @@ public class Efectivo extends javax.swing.JFrame {
         txtNoOrden.setText(String.valueOf(orden.getId()));
         txtTotal.setText(String.valueOf(orden.getTotal()));
         txtMesa.setText(String.valueOf(orden.getNumeroMesa()));
-        txtPlatillos.setText(orden.getPlatillos().toString()); // Modify as needed to show details
+        //txtPlatillos.setText(orden.getPlatillos().toString()); // Modify as needed to show details
     }
 
     @SuppressWarnings("unchecked")
