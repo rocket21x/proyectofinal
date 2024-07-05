@@ -17,10 +17,10 @@ public class PagoInicio extends javax.swing.JFrame {
 
     public PagoInicio() {
         initComponents();
-        transparenciaBtn();
+//        transparenciaBtn();
         setLocationRelativeTo(null);
         this.controladorAdministracionSistema = new ControladorAdministracionSistema();
-        this.controladorAdministracionSistema.actualizarTablaOrdenes((DefaultTableModel) TablaPago.getModel());
+        this.controladorAdministracionSistema.actualizarTablaOrdenes((DefaultTableModel) tablaPago.getModel());
         this.ordenDAO = new OrdenDaoImpl();
         //cargarOrden();
     }
@@ -32,8 +32,8 @@ public class PagoInicio extends javax.swing.JFrame {
         BtnEfectivo = new javax.swing.JButton();
         BtnTarjeta = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaPago = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaPago = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,22 +74,17 @@ public class PagoInicio extends javax.swing.JFrame {
         });
         getContentPane().add(BtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, 140, 70));
 
-        TablaPago.setBackground(new java.awt.Color(51, 51, 51));
-        TablaPago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        TablaPago.setForeground(new java.awt.Color(255, 255, 255));
-        TablaPago.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPago.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No.Orden", "Mesa", "Platillo", "Total"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
-        TablaPago.setGridColor(new java.awt.Color(102, 102, 102));
-        TablaPago.setSelectionBackground(new java.awt.Color(117, 209, 255));
-        jScrollPane1.setViewportView(TablaPago);
+        jScrollPane2.setViewportView(tablaPago);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 370, 310));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 370, 310));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/M/pago_Individual.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -103,71 +98,71 @@ public class PagoInicio extends javax.swing.JFrame {
 
     private void BtnEfectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEfectivoMouseClicked
 
-        int filaSeleccionada = TablaPago.getSelectedRow();
-
-        if (filaSeleccionada != -1) {
-            int ordenId = (int) TablaPago.getValueAt(filaSeleccionada, 0);
-            try {
-                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
-                if (ordenOptional.isPresent()) {
-                    OrdenEntity orden = ordenOptional.get();
-                    Efectivo efectivo = new Efectivo(orden);
-                    efectivo.setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
-                e.printStackTrace();
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
-        }
+//        int filaSeleccionada = TablaPago.getSelectedRow();
+//
+//        if (filaSeleccionada != -1) {
+//            int ordenId = (int) TablaPago.getValueAt(filaSeleccionada, 0);
+//            try {
+//                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
+//                if (ordenOptional.isPresent()) {
+//                    OrdenEntity orden = ordenOptional.get();
+//                    Efectivo efectivo = new Efectivo(orden);
+//                    efectivo.setVisible(true);
+//                    this.setVisible(false);
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
+//                }
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
+//                e.printStackTrace();
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
+//        }
     }//GEN-LAST:event_BtnEfectivoMouseClicked
 
     private void BtnTarjetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTarjetaMouseClicked
-        int filaSeleccionada = TablaPago.getSelectedRow();
-
-        if (filaSeleccionada != -1) {
-            int ordenId = (int) TablaPago.getValueAt(filaSeleccionada, 0);
-            try {
-                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
-                if (ordenOptional.isPresent()) {
-                    OrdenEntity orden = ordenOptional.get();
-                    Tarjeta tarjeta = new Tarjeta(orden);
-                    tarjeta.setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
-                e.printStackTrace();
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
-        }
+//        int filaSeleccionada = TablaPago.getSelectedRow();
+//
+//        if (filaSeleccionada != -1) {
+//            int ordenId = (int) TablaPago.getValueAt(filaSeleccionada, 0);
+//            try {
+//                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
+//                if (ordenOptional.isPresent()) {
+//                    OrdenEntity orden = ordenOptional.get();
+//                    Tarjeta tarjeta = new Tarjeta(orden);
+//                    tarjeta.setVisible(true);
+//                    this.setVisible(false);
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
+//                }
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
+//                e.printStackTrace();
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
+//        }
 
     }//GEN-LAST:event_BtnTarjetaMouseClicked
 
-    public JTable getTablaPago() {
-        return TablaPago;
-    }
+//    public JTable getTablaPago() {
+////        return TablaPago;
+//    }
 
-    public void transparenciaBtn() {
-        BtnEfectivo.setOpaque(false);
-        BtnEfectivo.setContentAreaFilled(false);
-        BtnEfectivo.setBorderPainted(false);
-        BtnSalir.setOpaque(false);
-        BtnSalir.setContentAreaFilled(false);
-        BtnSalir.setBorderPainted(false);
-        BtnTarjeta.setOpaque(false);
-        BtnTarjeta.setContentAreaFilled(false);
-        BtnTarjeta.setBorderPainted(false);
-        TablaPago.setOpaque(false);
-        jScrollPane1.setOpaque(false);
-    }
+//    public void transparenciaBtn() {
+//        BtnEfectivo.setOpaque(false);
+//        BtnEfectivo.setContentAreaFilled(false);
+//        BtnEfectivo.setBorderPainted(false);
+//        BtnSalir.setOpaque(false);
+//        BtnSalir.setContentAreaFilled(false);
+//        BtnSalir.setBorderPainted(false);
+//        BtnTarjeta.setOpaque(false);
+//        BtnTarjeta.setContentAreaFilled(false);
+//        BtnTarjeta.setBorderPainted(false);
+//        TablaPago.setOpaque(false);
+//        jScrollPane1.setOpaque(false);
+//    }
 /**
     public void cargarOrden() {
         DefaultTableModel modelo = (DefaultTableModel) TablaPago.getModel();
@@ -190,7 +185,7 @@ public class PagoInicio extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton BtnTarjeta;
     private javax.swing.JLabel Fondo;
-    public static javax.swing.JTable TablaPago;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tablaPago;
     // End of variables declaration//GEN-END:variables
 }

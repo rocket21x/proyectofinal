@@ -16,7 +16,8 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new PagoInicio().setVisible(true);
+        PagoInicio pago = new PagoInicio();
+        pago.setVisible(true);
     }
     
 }
