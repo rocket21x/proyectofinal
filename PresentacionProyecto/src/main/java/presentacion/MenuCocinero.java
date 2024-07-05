@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package presentacion;
 
-/**
- *
- * @author Rodrigo Gtz
- */
 public class MenuCocinero extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuCocineros
-     */
+    
     public MenuCocinero() {
         initComponents();
+          this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

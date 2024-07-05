@@ -14,8 +14,9 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         initComponents();
         this.controladorAdministracionSistema = new ControladorAdministracionSistema();
         this.controladorAdministracionSistema.actualizarTablaOrdenes((DefaultTableModel) tablaOrdenes.getModel());
-        
-        
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
     }
 
     @SuppressWarnings("unchecked")
