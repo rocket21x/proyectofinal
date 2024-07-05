@@ -20,6 +20,7 @@ public interface IAdministracionSistema {
     void abrirMenuCocinero();
     void abrirInventario();
     void abrirTomaDeOrden();
+    void abrirPagoInicio();
     void iniciarSesion(Usuario usuarioBO);
     void agregarPlatilloSeleccionado(PlatilloDTO platilloDTO);
     void eliminarPlatilloSeleccionado(PlatilloDTO platilloDTO);

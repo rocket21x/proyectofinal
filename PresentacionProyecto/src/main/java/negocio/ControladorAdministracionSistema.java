@@ -85,6 +85,7 @@ public class ControladorAdministracionSistema {
         orderBO.setNumeroOrden(ordenDTO.getNumeroOrden());
         orderBO.setNotas(ordenDTO.getNotas());
         orderBO.setEstado(ordenDTO.getEstado());
+        orderBO.setTotal(ordenDTO.getTotal());
         orderBO.setOrdenPlatillos(ordenDTO.getOrdenPlatillos());
         this.facadeAdministracionSistema.terminarOrden(orderBO);
         
@@ -98,5 +99,9 @@ public class ControladorAdministracionSistema {
 
     public void abrirAdministrarOrdenes() {
         this.facadeAdministracionSistema.abrirAdministrarOrdenes();
+    }
+
+    public void abrirPagoInicio() {
+        this.facadeAdministracionSistema.abrirPagoInicio();
     }
 }

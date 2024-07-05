@@ -3,7 +3,6 @@ package entidades;
 
 import javax.persistence.*;
 import java.util.List;
-import objetoNegocio.OrdenPlatillo;
 
 
 @Entity
@@ -26,6 +25,9 @@ public class OrdenEntity {
 
     @Column(name = "estado")
     private String estado;
+    
+    @Column(name = "total")
+    private Double total;
 
     @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrdenPlatilloEntity> ordenPlatillos;
@@ -69,6 +71,16 @@ public class OrdenEntity {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+    
+    
 
     public List<OrdenPlatilloEntity> getOrdenPlatillos() {
         return ordenPlatillos;

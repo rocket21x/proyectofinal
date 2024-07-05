@@ -93,6 +93,11 @@ public class MenuMeseros extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Procesar Pago");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 393, 353, 200));
 
         jLabel2.setFont(new java.awt.Font("Monospaced", 1, 64)); // NOI18N
@@ -117,6 +122,11 @@ public class MenuMeseros extends javax.swing.JFrame {
         this.controladorAdministracionSistema.abrirInicioSesion();
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.controladorAdministracionSistema.abrirPagoInicio();
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

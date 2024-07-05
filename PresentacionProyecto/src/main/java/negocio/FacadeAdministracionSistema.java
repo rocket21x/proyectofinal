@@ -42,6 +42,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     private Registro registro;
     private TomaDeOrden tomaDeOrden;
     private AdministrarOrdenes administrarOrdenes;
+ 
     private static List<PlatilloDTO> listaPlatillosSeleccionados = new ArrayList<>();
     
     public static UsuarioDTO usuarioActivo = new UsuarioDTO();
@@ -51,6 +52,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         this.ordenDaoImpl = new OrdenDaoImpl();
         this.usuarioDaoImpl = new UsuarioDaoImpl();
         this.ordenplatilloDAOImpl = new OrdenPlatilloDaoImpl();
+        
     }
     
     @Override
@@ -193,7 +195,8 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         ordenEntidad.setNumeroOrden(ordenBO.getNumeroOrden());
         ordenEntidad.setNotas(ordenBO.getNotas());
         ordenEntidad.setEstado("Pendiente");
-
+        ordenEntidad.setTotal(ordenBO.getTotal());
+        
         List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
 
         for (PlatilloDTO platilloDTO : listaPlatillosSeleccionados) {
@@ -264,6 +267,11 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     public void abrirAdministrarOrdenes() {
         this.administrarOrdenes = new AdministrarOrdenes();
         this.administrarOrdenes.setVisible(true);
+    }
+
+    public void abrirPagoInicio() {
+        this.pagoInicio = new PagoInicio();
+        this.pagoInicio.setVisible(true);       
     }
     
 }

@@ -14,6 +14,8 @@ public class Orden {
     private String notas;
 
     private String estado;
+    
+    private Double total;
 
     private List<OrdenPlatillo> ordenPlatillos;
 
@@ -56,6 +58,16 @@ public class Orden {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+    
+    
 
     public List<OrdenPlatillo> getOrdenPlatillos() {
         return ordenPlatillos;

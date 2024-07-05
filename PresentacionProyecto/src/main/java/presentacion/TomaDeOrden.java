@@ -12,7 +12,7 @@ import negocio.ControladorAdministracionSistema;
 public class TomaDeOrden extends javax.swing.JFrame {
 
     ControladorAdministracionSistema controladorAdministracionSistema;
- 
+    public static Double total = 0.0;
     
     public TomaDeOrden() {
         initComponents();
@@ -48,7 +48,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
         txtNota = new javax.swing.JTextField();
         lblNumeroMesa = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -221,8 +223,8 @@ public class TomaDeOrden extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Seleccionar Mesa:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
+        jLabel3.setText("Total:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 70, -1));
 
         jLabel4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,7 +238,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
 
         lblNumeroMesa.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         lblNumeroMesa.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 50, 30));
+        getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 50, 30));
 
         btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -249,8 +251,18 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 650, 180, 40));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Seleccionar Mesa:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, -1));
+
+        lblTotal.setBackground(new java.awt.Color(255, 255, 255));
+        lblTotal.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 180, 30));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,6 +288,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
             platilloDTO.setCantidad(1);
             platilloDTO.setDescripcion(descripcion);
 
+            this.sumarTotal(platilloDTO.getPrecio());
             this.controladorAdministracionSistema.agregarPlatilloSeleccionado(platilloDTO);
             this.controladorAdministracionSistema.actualizarTablaPlatillosSeleccionados((DefaultTableModel) this.tablaOrdenPlatillos.getModel());
         } else {
@@ -300,6 +313,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
         ordenDTO.setNumeroOrden(numeroOrden);
         ordenDTO.setNotas(txtNota.getText());
         ordenDTO.setEstado("Ingresada");
+        ordenDTO.setTotal(Double.valueOf(this.lblTotal.getText()));
         ordenDTO.setOrdenPlatillos(new ArrayList<>());
 
         
@@ -355,7 +369,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
             platilloDTO.setCantidad(cantidad - 1);
             platilloDTO.setDescripcion(descripcion);
             
-            if (cantidad == 1) {
+            this.restarTotal(platilloDTO.getPrecio());
+            
+            if (cantidad <= 1) {
                 this.controladorAdministracionSistema.eliminarPlatilloSeleccionado(platilloDTO);
                 this.controladorAdministracionSistema.actualizarTablaPlatillosSeleccionados((DefaultTableModel) this.tablaOrdenPlatillos.getModel());
             }
@@ -393,10 +409,15 @@ public class TomaDeOrden extends javax.swing.JFrame {
         this.controladorAdministracionSistema.abrirMenuMesero();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-   
-    /**
-     * @param args the command line arguments
-     */
+    public void sumarTotal(Double precio) {
+        this.total += precio;
+        this.lblTotal.setText(String.format("%.2f", total));
+    }
+
+    public void restarTotal(Double precio) {
+        this.total -= precio;
+        this.lblTotal.setText(String.format("%.2f", total));
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -445,10 +466,12 @@ public class TomaDeOrden extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblNumeroMesa;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tablaOrdenPlatillos;
     public static javax.swing.JTable tablaPlatillosOrden;
     private javax.swing.JTextField txtNota;

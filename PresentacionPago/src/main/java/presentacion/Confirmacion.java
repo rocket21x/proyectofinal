@@ -7,8 +7,7 @@ package presentacion;
 import daos.PagoDaoImpl;
 import entidades.OrdenEntity;
 import entidades.PagoEntity;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
+
 
 public class Confirmacion extends javax.swing.JFrame {
 

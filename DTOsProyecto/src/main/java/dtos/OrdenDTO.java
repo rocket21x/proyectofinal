@@ -12,6 +12,8 @@ public class OrdenDTO {
     private int numeroOrden;
     private String notas;
     private String estado;
+    private Double total;
+    
     private List<OrdenPlatillo> ordenPlatillos;
 
     public long getId() {
@@ -54,6 +56,16 @@ public class OrdenDTO {
         this.estado = estado;
     }
 
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    
+    
     public List<OrdenPlatillo> getOrdenPlatillos() {
         return ordenPlatillos;
     }
