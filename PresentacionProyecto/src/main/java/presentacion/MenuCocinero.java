@@ -32,6 +32,11 @@ public class MenuCocinero extends javax.swing.JFrame {
         });
 
         BtnSalir.setText("Salir");
+        BtnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,6 +70,10 @@ public class MenuCocinero extends javax.swing.JFrame {
         AdministrarOrdenes ad = new AdministrarOrdenes();
         ad.setVisible(true);
     }//GEN-LAST:event_BtnTomarOrdenActionPerformed
+
+    private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_BtnSalirActionPerformed
 
     /**
      * @param args the command line arguments
