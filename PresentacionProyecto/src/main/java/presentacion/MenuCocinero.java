@@ -2,6 +2,7 @@
 package presentacion;
 
 import negocio.ControladorAdministracionSistema;
+import negocio.FacadeAdministracionSistema;
 
 public class MenuCocinero extends javax.swing.JFrame {
 
@@ -24,60 +25,60 @@ public class MenuCocinero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BtnTomarOrden = new javax.swing.JButton();
-        BtnSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
+        btnVerOrdenes = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnTomarOrden.setText("Ver ordenes");
-        BtnTomarOrden.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("MENU PARA EL COCINERO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 850, -1));
+
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(51, 51, 51));
+        btnCerrarSesion.setText("Cerrar Sesión");
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTomarOrdenActionPerformed(evt);
+                btnCerrarSesionActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 400, 260));
 
-        BtnSalir.setText("Salir");
-        BtnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnVerOrdenes.setBackground(new java.awt.Color(255, 255, 255));
+        btnVerOrdenes.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnVerOrdenes.setForeground(new java.awt.Color(51, 51, 51));
+        btnVerOrdenes.setText("Ver ordenes");
+        btnVerOrdenes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVerOrdenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalirActionPerformed(evt);
+                btnVerOrdenesActionPerformed(evt);
             }
         });
+        getContentPane().add(btnVerOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 400, 260));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(484, 484, 484)
-                        .addComponent(BtnTomarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(515, 515, 515)
-                        .addComponent(BtnSalir)))
-                .addContainerGap(591, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(BtnTomarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(BtnSalir)
-                .addContainerGap(211, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnTomarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTomarOrdenActionPerformed
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        FacadeAdministracionSistema.usuarioActivo.setNombre("");
+        FacadeAdministracionSistema.usuarioActivo.setContraseña("");
+        this.controladorAdministracionSistema.abrirInicioSesion();
         this.setVisible(false);
-        this.controladorAdministracionSistema.abrirAdministrarOrdenes();
-    }//GEN-LAST:event_BtnTomarOrdenActionPerformed
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
-    private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_BtnSalirActionPerformed
+    private void btnVerOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerOrdenesActionPerformed
+        this.controladorAdministracionSistema.abrirAdministrarOrdenes();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVerOrdenesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,7 +117,9 @@ public class MenuCocinero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnSalir;
-    private javax.swing.JButton BtnTomarOrden;
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnVerOrdenes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

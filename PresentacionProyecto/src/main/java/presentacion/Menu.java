@@ -1,25 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package presentacion;
 
+import javax.swing.JOptionPane;
 import negocio.ControladorAdministracionSistema;
+import static negocio.FacadeAdministracionSistema.usuarioActivo;
 
-/**
- *
- * @author osval
- */
 public class Menu extends javax.swing.JFrame {
 
     ControladorAdministracionSistema controladorAdministracionSistema;
 
     public Menu() {
+        
         initComponents();
+        this.setTitle("Menu Gerencial");
         this.controladorAdministracionSistema = new ControladorAdministracionSistema();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        transparenciaBtn();
+    
     }
 
     /**
@@ -31,169 +28,133 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BtnCorteCaja = new javax.swing.JButton();
-        BtnHistorial = new javax.swing.JButton();
-        BtnTomarOrden = new javax.swing.JButton();
-        BtnInventario = new javax.swing.JButton();
-        BtnRegistrarTrabajador = new javax.swing.JButton();
-        BtnRegistraPromocion = new javax.swing.JButton();
-        BtnSalir = new javax.swing.JButton();
-        Fondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnIngresarOrden = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
+        btnRegistro = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
+        btnCorteCaja = new javax.swing.JButton();
+        btnHistorialVentas = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnCorteCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/CorteA.png"))); // NOI18N
-        BtnCorteCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnCorteCaja.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/CorteA.png"))); // NOI18N
-        BtnCorteCaja.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/CorteP.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("MENU GERENCIAL");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 570, -1));
 
-        BtnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/HDVa.png"))); // NOI18N
-        BtnHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnHistorial.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/HDVa.png"))); // NOI18N
-        BtnHistorial.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/HDVp.png"))); // NOI18N
-
-        BtnTomarOrden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/TomarOrdenA.png"))); // NOI18N
-        BtnTomarOrden.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnTomarOrden.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/TomarOrdenA.png"))); // NOI18N
-        BtnTomarOrden.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/TomarOrdenP.png"))); // NOI18N
-        BtnTomarOrden.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresarOrden.setBackground(new java.awt.Color(255, 255, 255));
+        btnIngresarOrden.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnIngresarOrden.setForeground(new java.awt.Color(51, 51, 51));
+        btnIngresarOrden.setText("Ingresar Orden");
+        btnIngresarOrden.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIngresarOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTomarOrdenActionPerformed(evt);
+                btnIngresarOrdenActionPerformed(evt);
             }
         });
+        getContentPane().add(btnIngresarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 390, 260));
 
-        BtnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/InventarioA.png"))); // NOI18N
-        BtnInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnInventario.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/InventarioA.png"))); // NOI18N
-        BtnInventario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/InventarioPrendido.png"))); // NOI18N
-        BtnInventario.addActionListener(new java.awt.event.ActionListener() {
+        btnInventario.setBackground(new java.awt.Color(255, 255, 255));
+        btnInventario.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnInventario.setForeground(new java.awt.Color(51, 51, 51));
+        btnInventario.setText("Administrar tu Inventario");
+        btnInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnInventarioActionPerformed(evt);
+                btnInventarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 400, 260));
 
-        BtnRegistrarTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/RegisTrabajadorA.png"))); // NOI18N
-        BtnRegistrarTrabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnRegistrarTrabajador.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/RegisTrabajadorA.png"))); // NOI18N
-        BtnRegistrarTrabajador.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/RegisTrabajadorP.png"))); // NOI18N
-
-        BtnRegistraPromocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/RegPromocionA.png"))); // NOI18N
-        BtnRegistraPromocion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnRegistraPromocion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/RegPromocionA.png"))); // NOI18N
-        BtnRegistraPromocion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/RegPromocionP.png"))); // NOI18N
-
-        BtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/AAtrasBtn.png"))); // NOI18N
-        BtnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/AAtrasBtn.png"))); // NOI18N
-        BtnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Btn/atrasBtn.png"))); // NOI18N
-        BtnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegistro.setText("Registrar trabajador");
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalirActionPerformed(evt);
+                btnRegistroActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 400, 260));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Menu.jpg"))); // NOI18N
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(51, 51, 51));
+        btnCerrarSesion.setText("Cerrar Sesión");
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 390, 260));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(BtnCorteCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(BtnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(BtnRegistraPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(BtnRegistrarTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1070, 1070, 1070)
-                .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(BtnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(Fondo)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(BtnTomarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(BtnCorteCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(BtnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(BtnRegistraPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(BtnRegistrarTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(590, 590, 590)
-                .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(450, 450, 450)
-                .addComponent(BtnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(Fondo)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(450, 450, 450)
-                .addComponent(BtnTomarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        btnCorteCaja.setBackground(new java.awt.Color(255, 255, 255));
+        btnCorteCaja.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnCorteCaja.setForeground(new java.awt.Color(51, 51, 51));
+        btnCorteCaja.setText("Corte Caja");
+        btnCorteCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCorteCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCorteCajaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCorteCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 400, 260));
+
+        btnHistorialVentas.setBackground(new java.awt.Color(255, 255, 255));
+        btnHistorialVentas.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnHistorialVentas.setForeground(new java.awt.Color(0, 0, 0));
+        btnHistorialVentas.setText("Historial de las ventas");
+        btnHistorialVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHistorialVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialVentasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHistorialVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 400, 260));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnTomarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTomarOrdenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnTomarOrdenActionPerformed
-
-    private void BtnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInventarioActionPerformed
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
         this.controladorAdministracionSistema.abrirInventario();
         this.setVisible(false);
-    }//GEN-LAST:event_BtnInventarioActionPerformed
+    }//GEN-LAST:event_btnInventarioActionPerformed
 
-    private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_BtnSalirActionPerformed
-    public void transparenciaBtn() {
-        BtnInventario.setOpaque(false);
-        BtnInventario.setContentAreaFilled(false);
-        BtnInventario.setBorderPainted(false);
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        this.controladorAdministracionSistema.abrirRegistro();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegistroActionPerformed
 
-        BtnSalir.setOpaque(false);
-        BtnSalir.setContentAreaFilled(false);
-        BtnSalir.setBorderPainted(false);
+    private void btnIngresarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarOrdenActionPerformed
+        this.controladorAdministracionSistema.abrirTomaDeOrden();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnIngresarOrdenActionPerformed
 
-        BtnHistorial.setOpaque(false);
-        BtnHistorial.setContentAreaFilled(false);
-        BtnHistorial.setBorderPainted(false);
+    private void btnCorteCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorteCajaActionPerformed
+        JOptionPane.showMessageDialog(this, "Caracteristica en desarrollo.");
+    }//GEN-LAST:event_btnCorteCajaActionPerformed
 
-        BtnCorteCaja.setOpaque(false);
-        BtnCorteCaja.setContentAreaFilled(false);
-        BtnCorteCaja.setBorderPainted(false);
+    private void btnHistorialVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialVentasActionPerformed
+        JOptionPane.showMessageDialog(this, "Caracteristica en desarrollo.");
+    }//GEN-LAST:event_btnHistorialVentasActionPerformed
 
-        BtnTomarOrden.setOpaque(false);
-        BtnTomarOrden.setContentAreaFilled(false);
-        BtnTomarOrden.setBorderPainted(false);
-
-        BtnRegistraPromocion.setOpaque(false);
-        BtnRegistraPromocion.setContentAreaFilled(false);
-        BtnRegistraPromocion.setBorderPainted(false);
-
-        BtnRegistrarTrabajador.setOpaque(false);
-        BtnRegistrarTrabajador.setContentAreaFilled(false);
-        BtnRegistrarTrabajador.setBorderPainted(false);
-    }
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        usuarioActivo.setNombre("");
+        usuarioActivo.setContraseña("");
+        this.controladorAdministracionSistema.abrirInicioSesion();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+    
 
     /**
      * @param args the command line arguments
@@ -231,13 +192,13 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCorteCaja;
-    private javax.swing.JButton BtnHistorial;
-    private javax.swing.JButton BtnInventario;
-    private javax.swing.JButton BtnRegistraPromocion;
-    private javax.swing.JButton BtnRegistrarTrabajador;
-    private javax.swing.JButton BtnSalir;
-    private javax.swing.JButton BtnTomarOrden;
-    private javax.swing.JLabel Fondo;
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnCorteCaja;
+    private javax.swing.JButton btnHistorialVentas;
+    private javax.swing.JButton btnIngresarOrden;
+    private javax.swing.JButton btnInventario;
+    private javax.swing.JButton btnRegistro;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
