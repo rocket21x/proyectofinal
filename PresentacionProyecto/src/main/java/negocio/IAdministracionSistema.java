@@ -5,7 +5,6 @@ import dtos.OrdenDTO;
 import dtos.PlatilloDTO;
 import javax.swing.table.DefaultTableModel;
 import objetoNegocio.Orden;
-import objetoNegocio.Platillo;
 import objetoNegocio.Usuario;
 
 public interface IAdministracionSistema {

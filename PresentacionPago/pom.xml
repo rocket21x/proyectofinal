@@ -15,23 +15,23 @@
             <version>RELEASE220</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>VerificaPago</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.29</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Persistencia</artifactId>
+            <artifactId>PresentacionProyecto</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>PresentacionProyecto</artifactId>
+            <artifactId>VerificaPago</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Persistencia</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

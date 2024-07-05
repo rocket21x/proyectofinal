@@ -1,6 +1,5 @@
 package negocio;
 
-import com.mysql.cj.Query;
 import daos.OrdenDaoImpl;
 import daos.OrdenPlatilloDaoImpl;
 import daos.PlatilloDaoImpl;

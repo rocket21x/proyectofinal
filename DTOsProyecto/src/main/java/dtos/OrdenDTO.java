@@ -3,7 +3,6 @@ package dtos;
 
 import java.util.List;
 import objetoNegocio.OrdenPlatillo;
-import objetoNegocio.Platillo;
 
 public class OrdenDTO {
     

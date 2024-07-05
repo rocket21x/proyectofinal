@@ -26,7 +26,7 @@ public class Tarjeta extends javax.swing.JFrame {
 
         txtNoOrden.setText(String.valueOf(orden.getId()));
         txtMesa.setText(String.valueOf(orden.getNumeroMesa()));
-//        txtPlatillos.setText(orden.getPlatillos().toString()); // Ajustar según la estructura de detalles
+         
         txtTotal.setText(String.valueOf(orden.getTotal()));
     }
 
@@ -43,8 +43,6 @@ public class Tarjeta extends javax.swing.JFrame {
         txtPago = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtNoOrden = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtPlatillos = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtMesa = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -114,14 +112,6 @@ public class Tarjeta extends javax.swing.JFrame {
         txtNoOrden.setEditable(false);
         txtNoOrden.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtNoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 6, -1, -1));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Platillos");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 37, -1, -1));
-
-        txtPlatillos.setEditable(false);
-        txtPlatillos.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtPlatillos, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 34, 240, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Mesa");
@@ -219,7 +209,6 @@ public class Tarjeta extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
         jPanel2.setOpaque(false);
         txtTotal.setOpaque(false);
-        txtPlatillos.setOpaque(false);
         txtPago.setOpaque(false);
         txtNoOrden.setOpaque(false);
         txtMesa.setOpaque(false);
@@ -237,14 +226,12 @@ public class Tarjeta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtMesa;
     private javax.swing.JTextField txtNoOrden;
     private javax.swing.JTextField txtPago;
-    private javax.swing.JTextField txtPlatillos;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

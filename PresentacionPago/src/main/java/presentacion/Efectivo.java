@@ -4,10 +4,8 @@
  */
 package presentacion;
 
-import daos.OrdenDaoImpl;
 import daos.PagoDaoImpl;
 import entidades.OrdenEntity;
-import entidades.PagoEntity;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
 
@@ -27,7 +25,6 @@ public class Efectivo extends javax.swing.JFrame {
         txtNoOrden.setText(String.valueOf(orden.getId()));
         txtTotal.setText(String.valueOf(orden.getTotal()));
         txtMesa.setText(String.valueOf(orden.getNumeroMesa()));
-        //txtPlatillos.setText(orden.getPlatillos().toString()); // Modify as needed to show details
     }
 
     @SuppressWarnings("unchecked")
@@ -43,8 +40,6 @@ public class Efectivo extends javax.swing.JFrame {
         txtPago = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtNoOrden = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtPlatillos = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtMesa = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -110,14 +105,6 @@ public class Efectivo extends javax.swing.JFrame {
         txtNoOrden.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtNoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 6, -1, -1));
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Platillos");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 37, -1, -1));
-
-        txtPlatillos.setEditable(false);
-        txtPlatillos.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtPlatillos, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 34, 240, -1));
-
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Mesa");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
@@ -178,7 +165,6 @@ public class Efectivo extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
         jPanel2.setOpaque(false);
         txtTotal.setOpaque(false);
-        txtPlatillos.setOpaque(false);
         txtPago.setOpaque(false);
         txtNoOrden.setOpaque(false);
         txtMesa.setOpaque(false);
@@ -192,14 +178,12 @@ public class Efectivo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtCambio;
     private javax.swing.JTextField txtMesa;
     private javax.swing.JTextField txtNoOrden;
     private javax.swing.JTextField txtPago;
-    private javax.swing.JTextField txtPlatillos;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

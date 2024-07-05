@@ -2,27 +2,23 @@ package presentacion;
 
 import daos.OrdenDaoImpl;
 import entidades.OrdenEntity;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import entidades.OrdenPlatilloEntity;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import java.util.Optional;
-import negocio.ControladorAdministracionSistema;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 public class PagoInicio extends javax.swing.JFrame {
 
     private OrdenDaoImpl ordenDAO;
-    ControladorAdministracionSistema controladorAdministracionSistema;
-            
-    
 
     public PagoInicio() {
         initComponents();
-//        transparenciaBtn();
+        transparenciaBtn();
         setLocationRelativeTo(null);
-        this.controladorAdministracionSistema = new ControladorAdministracionSistema();
-        this.controladorAdministracionSistema.actualizarTablaOrdenes((DefaultTableModel) tablaPago.getModel());
         this.ordenDAO = new OrdenDaoImpl();
-        //cargarOrden();
+        cargarOrden();
     }
 
     @SuppressWarnings("unchecked")
@@ -79,7 +75,7 @@ public class PagoInicio extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "No. Orden", "No. Mesa", "Platillo", "Total"
             }
         ));
         jScrollPane2.setViewportView(tablaPago);
@@ -97,89 +93,104 @@ public class PagoInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirMouseClicked
 
     private void BtnEfectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEfectivoMouseClicked
+        int filaSeleccionada = tablaPago.getSelectedRow();
 
-//        int filaSeleccionada = TablaPago.getSelectedRow();
-//
-//        if (filaSeleccionada != -1) {
-//            int ordenId = (int) TablaPago.getValueAt(filaSeleccionada, 0);
-//            try {
-//                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
-//                if (ordenOptional.isPresent()) {
-//                    OrdenEntity orden = ordenOptional.get();
-//                    Efectivo efectivo = new Efectivo(orden);
-//                    efectivo.setVisible(true);
-//                    this.setVisible(false);
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
-//                }
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
-//                e.printStackTrace();
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
-//        }
+        if (filaSeleccionada != -1) {
+            String ordenID = String.valueOf(tablaPago.getValueAt(filaSeleccionada, 0));
+            Long ordenId = Long.valueOf(ordenID);
+            try {
+                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
+                if (ordenOptional.isPresent()) {
+                    OrdenEntity orden = ordenOptional.get();
+                    Efectivo efectivo = new Efectivo(orden);
+                    efectivo.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
+        }
     }//GEN-LAST:event_BtnEfectivoMouseClicked
 
     private void BtnTarjetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTarjetaMouseClicked
-//        int filaSeleccionada = TablaPago.getSelectedRow();
-//
-//        if (filaSeleccionada != -1) {
-//            int ordenId = (int) TablaPago.getValueAt(filaSeleccionada, 0);
-//            try {
-//                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
-//                if (ordenOptional.isPresent()) {
-//                    OrdenEntity orden = ordenOptional.get();
-//                    Tarjeta tarjeta = new Tarjeta(orden);
-//                    tarjeta.setVisible(true);
-//                    this.setVisible(false);
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
-//                }
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
-//                e.printStackTrace();
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
-//        }
+        int filaSeleccionada = tablaPago.getSelectedRow();
 
+        if (filaSeleccionada != -1) {
+            String ordenID = String.valueOf(tablaPago.getValueAt(filaSeleccionada, 0));
+            Long ordenId = Long.valueOf(ordenID);
+
+            try {
+                Optional<OrdenEntity> ordenOptional = ordenDAO.obtenerPorId(ordenId);
+                if (ordenOptional.isPresent()) {
+                    OrdenEntity orden = ordenOptional.get();
+                    Tarjeta tarjeta = new Tarjeta(orden);
+                    tarjeta.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Orden no encontrada.");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al cargar la orden: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona una fila primero");
+        }
     }//GEN-LAST:event_BtnTarjetaMouseClicked
 
-//    public JTable getTablaPago() {
-////        return TablaPago;
-//    }
+    public JTable getTablaPago() {
+        return tablaPago;
+    }
 
-//    public void transparenciaBtn() {
-//        BtnEfectivo.setOpaque(false);
-//        BtnEfectivo.setContentAreaFilled(false);
-//        BtnEfectivo.setBorderPainted(false);
-//        BtnSalir.setOpaque(false);
-//        BtnSalir.setContentAreaFilled(false);
-//        BtnSalir.setBorderPainted(false);
-//        BtnTarjeta.setOpaque(false);
-//        BtnTarjeta.setContentAreaFilled(false);
-//        BtnTarjeta.setBorderPainted(false);
-//        TablaPago.setOpaque(false);
-//        jScrollPane1.setOpaque(false);
-//    }
-/**
+    public void transparenciaBtn() {
+        BtnEfectivo.setOpaque(false);
+        BtnEfectivo.setContentAreaFilled(false);
+        BtnEfectivo.setBorderPainted(false);
+        BtnSalir.setOpaque(false);
+        BtnSalir.setContentAreaFilled(false);
+        BtnSalir.setBorderPainted(false);
+        BtnTarjeta.setOpaque(false);
+        BtnTarjeta.setContentAreaFilled(false);
+        BtnTarjeta.setBorderPainted(false);
+        tablaPago.setOpaque(false);
+        jScrollPane2.setOpaque(false);
+    }
+
     public void cargarOrden() {
-        DefaultTableModel modelo = (DefaultTableModel) TablaPago.getModel();
-        modelo.setRowCount(0);
+        DefaultTableModel modelo = (DefaultTableModel) tablaPago.getModel();
+        modelo.setRowCount(0); // Limpiar el modelo actual
+
         try {
             List<OrdenEntity> ordenes = ordenDAO.obtenerTodos();
             for (OrdenEntity orden : ordenes) {
-                //modelo.addRow(new Object[]{orden.getId(), orden.getNumeroMesa(), orden.getPlatillos(), orden.getTotal()});
+                // Concatenar los nombres de platillos
+                StringBuilder platillosStr = new StringBuilder();
+                for (OrdenPlatilloEntity ordenPlatillo : orden.getOrdenPlatillos()) {
+                    platillosStr.append(ordenPlatillo.getPlatillo().getNombre()).append(", ");
+                }
+                // Eliminar la última coma y espacio si hay platillos
+                if (platillosStr.length() > 0) {
+                    platillosStr.setLength(platillosStr.length() - 2);
+                }
+
+                // Agregar una nueva fila al modelo de tabla
+                modelo.addRow(new Object[]{
+                    orden.getId(),
+                    orden.getNumeroMesa(),
+                    platillosStr.toString(), // Mostrar nombres de platillos
+                    orden.getTotal()
+                });
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al cargar las órdenes: " + e.getMessage());
             e.printStackTrace();
         }
-
     }
-**/
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEfectivo;
     private javax.swing.JButton BtnSalir;
