@@ -2,6 +2,8 @@ package presentacion;
 
 import dtos.OrdenDTO;
 import dtos.OrdenPlatilloDTO;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import negocio.ControladorAdministracionSistema;
 
@@ -52,6 +54,11 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaOrdenes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaOrdenesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaOrdenes);
 
         jLabel1.setText("Ordenes activas");
@@ -71,6 +78,11 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         jButton1.setText("Volver");
 
         btnListoParaServir.setText("Listo para Servir");
+        btnListoParaServir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListoParaServirActionPerformed(evt);
+            }
+        });
 
         btnPendiente.setText("Pendiente");
         btnPendiente.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +176,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
             ordenDTO.setNumeroMesa(numeroMesa);
             ordenDTO.setNumeroOrden(numeroOrden);
             ordenDTO.setNotas(notas);
-            ordenDTO.setEstado("Pendiente1");
+            ordenDTO.setEstado("Pendiente");
 
             this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
             this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
@@ -172,12 +184,76 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPendienteActionPerformed
 
+        tablaOrdenes.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if (!event.getValueIsAdjusting() && tablaOrdenes.getSelectedRow() != -1) {
+                    // Llamar a la acción de la selección de fila
+                    DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
+                    Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
+                    controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
+                    
+                }
+            }
+        });
     }
 
     private void btnPreparandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreparandoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPreparandoActionPerformed
+        int registroSeleccionado = tablaOrdenes.getSelectedRow();
+        if (registroSeleccionado != -1) {
+            DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
 
+            Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
+            Integer numeroMesa = (Integer) model.getValueAt(registroSeleccionado, 1);
+            Integer numeroOrden = (Integer) model.getValueAt(registroSeleccionado, 2);
+            String notas = (String) model.getValueAt(registroSeleccionado, 3);
+
+            OrdenDTO ordenDTO = new OrdenDTO();
+
+            ordenDTO.setId(idOrden);
+            ordenDTO.setNumeroMesa(numeroMesa);
+            ordenDTO.setNumeroOrden(numeroOrden);
+            ordenDTO.setNotas(notas);
+            ordenDTO.setEstado("Preparando");
+
+            this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
+            this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
+            this.controladorAdministracionSistema.actualizarTablaOrdenes(model);
+    }//GEN-LAST:event_btnPreparandoActionPerformed
+}
+    private void btnListoParaServirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoParaServirActionPerformed
+        // TODO add your handling code here:
+        int registroSeleccionado = tablaOrdenes.getSelectedRow();
+        if (registroSeleccionado != -1) {
+            DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
+
+            Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
+            Integer numeroMesa = (Integer) model.getValueAt(registroSeleccionado, 1);
+            Integer numeroOrden = (Integer) model.getValueAt(registroSeleccionado, 2);
+            String notas = (String) model.getValueAt(registroSeleccionado, 3);
+
+            OrdenDTO ordenDTO = new OrdenDTO();
+
+            ordenDTO.setId(idOrden);
+            ordenDTO.setNumeroMesa(numeroMesa);
+            ordenDTO.setNumeroOrden(numeroOrden);
+            ordenDTO.setNotas(notas);
+            ordenDTO.setEstado("Listo");
+
+            this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
+            this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
+            this.controladorAdministracionSistema.actualizarTablaOrdenes(model);
+    }//GEN-LAST:event_btnListoParaServirActionPerformed
+}
+    private void tablaOrdenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaOrdenesMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
+        int registroSeleccionado = tablaOrdenes.getSelectedRow();
+                    Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
+                    controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
+    }//GEN-LAST:event_tablaOrdenesMouseClicked
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

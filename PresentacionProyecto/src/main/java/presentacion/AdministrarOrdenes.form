@@ -112,6 +112,9 @@
               </Table>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaOrdenesMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -159,6 +162,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Listo para Servir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListoParaServirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPendiente">
       <Properties>
