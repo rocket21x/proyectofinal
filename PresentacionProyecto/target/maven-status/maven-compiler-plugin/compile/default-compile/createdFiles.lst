@@ -5,7 +5,9 @@ presentacion\AdministrarOrdenes$5.class
 presentacion\TomaDeOrden$3.class
 negocio\IAdministracionSistema.class
 presentacion\AdministrarOrdenes.class
+main\Main.class
 presentacion\MenuMeseros$5.class
+presentacion\AdministrarOrdenes$9.class
 presentacion\MenuMeseros$1.class
 presentacion\AdministrarOrdenes$8.class
 presentacion\Menu$5.class
