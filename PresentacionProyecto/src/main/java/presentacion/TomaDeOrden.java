@@ -280,7 +280,6 @@ public class TomaDeOrden extends javax.swing.JFrame {
             String descripcion = (String) model.getValueAt(registro, 2);
             Double precio = (Double) model.getValueAt(registro, 3);
             
-
             PlatilloDTO platilloDTO = new PlatilloDTO();
             platilloDTO.setId(idPlatillo);
             platilloDTO.setNombre(nombre);
@@ -300,14 +299,15 @@ public class TomaDeOrden extends javax.swing.JFrame {
 
     private void btnTerminarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarOrdenActionPerformed
         
-        if (lblNumeroMesa.equals("")) {
-            JOptionPane.showConfirmDialog(this, "Selecciona una mesa para continuar.");
+        if (lblNumeroMesa.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Selecciona una mesa para continuar.");
+            return;
         }
-        
-        int numMesa = Integer.parseInt(this.lblNumeroMesa.getText()); 
-        
-        int numeroOrden = (int)(System.currentTimeMillis()&0xffffff);
-        
+
+        int numMesa = Integer.parseInt(this.lblNumeroMesa.getText());
+
+        int numeroOrden = (int) (System.currentTimeMillis() & 0xffffff);
+
         OrdenDTO ordenDTO = new OrdenDTO();
         ordenDTO.setNumeroMesa(numMesa);
         ordenDTO.setNumeroOrden(numeroOrden);
@@ -316,9 +316,16 @@ public class TomaDeOrden extends javax.swing.JFrame {
         ordenDTO.setTotal(Double.valueOf(this.lblTotal.getText()));
         ordenDTO.setOrdenPlatillos(new ArrayList<>());
 
-        
-        
         this.controladorAdministracionSistema.terminarOrden(ordenDTO);
+
+        DefaultTableModel model = (DefaultTableModel) tablaOrdenPlatillos.getModel();
+        model.setRowCount(0);
+
+        lblNumeroMesa.setText("");
+        txtNota.setText("");
+        lblTotal.setText("0.00");
+        this.total = 0.0; 
+
     }//GEN-LAST:event_btnTerminarOrdenActionPerformed
 
     private void btnSumarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarCantidadActionPerformed

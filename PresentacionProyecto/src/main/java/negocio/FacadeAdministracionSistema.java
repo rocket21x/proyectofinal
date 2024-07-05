@@ -213,6 +213,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
         ordenEntidad.setOrdenPlatillos(ordenPlatillos);
 
         this.ordenDaoImpl.crear(ordenEntidad);
+        FacadeAdministracionSistema.listaPlatillosSeleccionados.clear();
         JOptionPane.showMessageDialog(null, "Se ha creado la orden");
     }
 
