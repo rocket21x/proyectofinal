@@ -48,10 +48,14 @@ public class TomaDeOrden extends javax.swing.JFrame {
         txtNota = new javax.swing.JTextField();
         lblNumeroMesa = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tablaPlatillosOrden.setBackground(new java.awt.Color(255, 255, 255));
+        tablaPlatillosOrden.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        tablaPlatillosOrden.setForeground(new java.awt.Color(51, 51, 51));
         tablaPlatillosOrden.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -70,8 +74,11 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaPlatillosOrden);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 460, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 550, -1));
 
+        tablaOrdenPlatillos.setBackground(new java.awt.Color(255, 255, 255));
+        tablaOrdenPlatillos.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        tablaOrdenPlatillos.setForeground(new java.awt.Color(51, 51, 51));
         tablaOrdenPlatillos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -90,14 +97,21 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablaOrdenPlatillos);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 500, 430));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 500, 430));
 
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione los platillos:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 18, 220, -1));
 
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Platillos de la orden:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 18, 160, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 280, -1));
 
+        btnMesa2.setBackground(new java.awt.Color(255, 255, 255));
+        btnMesa2.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnMesa2.setForeground(new java.awt.Color(51, 51, 51));
         btnMesa2.setText("2");
         btnMesa2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +120,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, 129, 73));
 
+        btnMesa3.setBackground(new java.awt.Color(255, 255, 255));
+        btnMesa3.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnMesa3.setForeground(new java.awt.Color(51, 51, 51));
         btnMesa3.setText("3");
         btnMesa3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +131,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 129, 73));
 
+        btnMesa1.setBackground(new java.awt.Color(255, 255, 255));
+        btnMesa1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnMesa1.setForeground(new java.awt.Color(51, 51, 51));
         btnMesa1.setText("1");
         btnMesa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +142,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 129, 73));
 
+        btnMesa5.setBackground(new java.awt.Color(255, 255, 255));
+        btnMesa5.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnMesa5.setForeground(new java.awt.Color(51, 51, 51));
         btnMesa5.setText("5");
         btnMesa5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +153,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 620, 129, 73));
 
+        btnMesa6.setBackground(new java.awt.Color(255, 255, 255));
+        btnMesa6.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnMesa6.setForeground(new java.awt.Color(51, 51, 51));
         btnMesa6.setText("6");
         btnMesa6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +164,9 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 620, 129, 73));
 
+        btnMesa4.setBackground(new java.awt.Color(255, 255, 255));
+        btnMesa4.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnMesa4.setForeground(new java.awt.Color(51, 51, 51));
         btnMesa4.setText("4");
         btnMesa4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,55 +175,76 @@ public class TomaDeOrden extends javax.swing.JFrame {
         });
         getContentPane().add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 129, 73));
 
+        btnAgregarPlatillo.setBackground(new java.awt.Color(255, 255, 255));
+        btnAgregarPlatillo.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        btnAgregarPlatillo.setForeground(new java.awt.Color(51, 51, 51));
         btnAgregarPlatillo.setText("Agregar platillo");
         btnAgregarPlatillo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarPlatilloActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, 140, 40));
+        getContentPane().add(btnAgregarPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 180, 40));
 
+        btnRestarCantidad.setBackground(new java.awt.Color(255, 255, 255));
+        btnRestarCantidad.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        btnRestarCantidad.setForeground(new java.awt.Color(51, 51, 51));
         btnRestarCantidad.setText("-");
         btnRestarCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestarCantidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRestarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 520, 80, 50));
+        getContentPane().add(btnRestarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 520, 140, 40));
 
+        btnSumarCantidad.setBackground(new java.awt.Color(255, 255, 255));
+        btnSumarCantidad.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        btnSumarCantidad.setForeground(new java.awt.Color(51, 51, 51));
         btnSumarCantidad.setText("+");
         btnSumarCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSumarCantidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSumarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 520, 80, 50));
+        getContentPane().add(btnSumarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 520, 120, 40));
 
+        btnTerminarOrden.setBackground(new java.awt.Color(255, 255, 255));
+        btnTerminarOrden.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        btnTerminarOrden.setForeground(new java.awt.Color(51, 51, 51));
         btnTerminarOrden.setText("Terminar orden");
         btnTerminarOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTerminarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTerminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 580, 140, 40));
+        getContentPane().add(btnTerminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 180, 40));
 
+        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Seleccionar Mesa:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
         jLabel4.setText("Agregar Nota adicional:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
-        getContentPane().add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 630, 250, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 590, -1, -1));
+        getContentPane().add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 620, 290, 40));
 
         lblNumeroMesa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNumeroMesa.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 50, 20));
 
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(51, 51, 51));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 140, 40));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 650, 180, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -389,6 +439,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblNumeroMesa;

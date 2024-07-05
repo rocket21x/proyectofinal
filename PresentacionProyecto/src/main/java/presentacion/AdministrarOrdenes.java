@@ -35,9 +35,14 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         btnPendiente = new javax.swing.JButton();
         btnPreparando = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tablaOrdenes.setBackground(new java.awt.Color(255, 255, 255));
+        tablaOrdenes.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        tablaOrdenes.setForeground(new java.awt.Color(51, 51, 51));
         tablaOrdenes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -61,105 +66,89 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaOrdenes);
 
-        jLabel1.setText("Ordenes activas");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 640, 369));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jLabel1.setText("Ordenes activas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, -1));
+
+        tablaPlatillosOrden.setBackground(new java.awt.Color(255, 255, 255));
+        tablaPlatillosOrden.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        tablaPlatillosOrden.setForeground(new java.awt.Color(51, 51, 51));
         tablaPlatillosOrden.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Descripcion"
+                "Id Orden", "Platillo"
             }
         ));
         jScrollPane2.setViewportView(tablaPlatillosOrden);
 
-        jLabel2.setText("Platillos de la orden");
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 520, 369));
 
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jLabel2.setText("Platillos de la orden");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 400, -1));
+
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(51, 51, 51));
         btnVolver.setText("Volver");
+        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 600, 200, 100));
 
+        btnListoParaServir.setBackground(new java.awt.Color(255, 255, 255));
+        btnListoParaServir.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnListoParaServir.setForeground(new java.awt.Color(51, 51, 51));
         btnListoParaServir.setText("Listo para Servir");
+        btnListoParaServir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnListoParaServir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListoParaServirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnListoParaServir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 580, 290, 110));
 
+        btnPendiente.setBackground(new java.awt.Color(255, 255, 255));
+        btnPendiente.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnPendiente.setForeground(new java.awt.Color(51, 51, 51));
         btnPendiente.setText("Pendiente");
+        btnPendiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPendiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPendienteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnPendiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 310, 100));
 
+        btnPreparando.setBackground(new java.awt.Color(255, 255, 255));
+        btnPreparando.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnPreparando.setForeground(new java.awt.Color(51, 51, 51));
         btnPreparando.setText("Preparando");
+        btnPreparando.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPreparando.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreparandoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnPreparando, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 290, 100));
 
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setText("Cancelado");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 310, 110));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPreparando, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnListoParaServir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPreparando, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnListoParaServir, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -306,6 +295,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTable tablaOrdenes;
