@@ -37,6 +37,7 @@ presentacion\TomaDeOrden$2.class
 negocio\FacadeAdministracionSistema.class
 presentacion\TomaDeOrden$12.class
 presentacion\InicioSesion.class
+presentacion\AdministrarOrdenes$4.class
 presentacion\Inventario$4.class
 presentacion\TomaDeOrden$4.class
 presentacion\InicioSesion$2.class

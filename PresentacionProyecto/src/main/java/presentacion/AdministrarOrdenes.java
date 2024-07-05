@@ -1,4 +1,3 @@
-
 package presentacion;
 
 import dtos.OrdenDTO;
@@ -9,7 +8,7 @@ import negocio.ControladorAdministracionSistema;
 public class AdministrarOrdenes extends javax.swing.JFrame {
 
     ControladorAdministracionSistema controladorAdministracionSistema;
-    
+
     public AdministrarOrdenes() {
         initComponents();
         this.controladorAdministracionSistema = new ControladorAdministracionSistema();
@@ -81,6 +80,11 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         });
 
         btnPreparando.setText("Preparando");
+        btnPreparando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreparandoActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -146,31 +150,65 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
     private void btnPendienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendienteActionPerformed
         // TODO add your handling code here:
         int registroSeleccionado = tablaOrdenes.getSelectedRow();
-    if (registroSeleccionado != -1) {
-        DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
-        
-        Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
-        Integer numeroMesa = (Integer) model.getValueAt(registroSeleccionado, 1);
-        Integer numeroOrden = (Integer) model.getValueAt(registroSeleccionado, 2);
-        String notas = (String) model.getValueAt(registroSeleccionado, 3);
-        
-        
-        OrdenDTO ordenDTO = new OrdenDTO();
-        
-        ordenDTO.setId(idOrden);
-        ordenDTO.setNumeroMesa(numeroMesa);
-        ordenDTO.setNumeroOrden(numeroOrden);
-        ordenDTO.setNotas(notas);
-        ordenDTO.setEstado("Pendiente");
-        
-        this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(),idOrden) ;
-        this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
-        this.controladorAdministracionSistema.actualizarTablaOrdenes(model);
-       
+        if (registroSeleccionado != -1) {
+            DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
+
+            Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
+            Integer numeroMesa = (Integer) model.getValueAt(registroSeleccionado, 1);
+            Integer numeroOrden = (Integer) model.getValueAt(registroSeleccionado, 2);
+            String notas = (String) model.getValueAt(registroSeleccionado, 3);
+
+            OrdenDTO ordenDTO = new OrdenDTO();
+
+            ordenDTO.setId(idOrden);
+            ordenDTO.setNumeroMesa(numeroMesa);
+            ordenDTO.setNumeroOrden(numeroOrden);
+            ordenDTO.setNotas(notas.toString());
+            ordenDTO.setEstado("Pendiente1");
+
+            this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
+            this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
+            this.controladorAdministracionSistema.actualizarTablaOrdenes(model);
+
     }//GEN-LAST:event_btnPendienteActionPerformed
-    
+
     }
-    
+
+    private void btnPreparandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreparandoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPreparandoActionPerformed
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new InicioSesion().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
