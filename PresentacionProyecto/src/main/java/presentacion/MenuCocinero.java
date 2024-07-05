@@ -1,11 +1,16 @@
 
 package presentacion;
 
+import negocio.ControladorAdministracionSistema;
+
 public class MenuCocinero extends javax.swing.JFrame {
 
+    ControladorAdministracionSistema controladorAdministracionSistema;
     
     public MenuCocinero() {
+        
         initComponents();
+        this.controladorAdministracionSistema = new ControladorAdministracionSistema();
           this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
@@ -66,9 +71,8 @@ public class MenuCocinero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnTomarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTomarOrdenActionPerformed
-        // TODO add your handling code here:
-        AdministrarOrdenes ad = new AdministrarOrdenes();
-        ad.setVisible(true);
+        this.setVisible(false);
+        this.controladorAdministracionSistema.abrirAdministrarOrdenes();
     }//GEN-LAST:event_BtnTomarOrdenActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed

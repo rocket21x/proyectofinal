@@ -95,4 +95,8 @@ public class ControladorAdministracionSistema {
     public void actualizarTablaOrdenPlatillo(DefaultTableModel modelo, Long id){
         this.facadeAdministracionSistema.actualizarTablaOrdenPlatillo(modelo,id);
     }
+
+    public void abrirAdministrarOrdenes() {
+        this.facadeAdministracionSistema.abrirAdministrarOrdenes();
+    }
 }
