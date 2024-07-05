@@ -30,7 +30,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaPlatillosOrden = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         btnListoParaServir = new javax.swing.JButton();
         btnPendiente = new javax.swing.JButton();
         btnPreparando = new javax.swing.JButton();
@@ -75,7 +75,12 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
 
         jLabel2.setText("Platillos de la orden");
 
-        jButton1.setText("Volver");
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         btnListoParaServir.setText("Listo para Servir");
         btnListoParaServir.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +132,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,7 +157,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListoParaServir, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -254,6 +259,13 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
                     controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
     }//GEN-LAST:event_tablaOrdenesMouseClicked
     
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.setVisible(false);
+        this.controladorAdministracionSistema.abrirMenuCocinero();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -291,7 +303,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
     private javax.swing.JButton btnListoParaServir;
     private javax.swing.JButton btnPendiente;
     private javax.swing.JButton btnPreparando;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

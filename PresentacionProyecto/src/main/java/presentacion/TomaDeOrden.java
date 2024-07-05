@@ -47,7 +47,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtNota = new javax.swing.JTextField();
         lblNumeroMesa = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -188,8 +188,13 @@ public class TomaDeOrden extends javax.swing.JFrame {
         lblNumeroMesa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 50, 20));
 
-        jButton1.setText("Volver");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 140, 40));
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 140, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -327,6 +332,11 @@ public class TomaDeOrden extends javax.swing.JFrame {
        this.lblNumeroMesa.setText("6");
     }//GEN-LAST:event_btnMesa6ActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.setVisible(false);
+        this.controladorAdministracionSistema.abrirMenuMesero();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
    
     /**
      * @param args the command line arguments
@@ -374,7 +384,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
     private javax.swing.JButton btnRestarCantidad;
     private javax.swing.JButton btnSumarCantidad;
     private javax.swing.JButton btnTerminarOrden;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import objetoNegocio.Orden;
 import objetoNegocio.Usuario;
+import presentacion.AdministrarOrdenes;
 import presentacion.InicioSesion;
 import presentacion.Inventario;
 import presentacion.Menu;
@@ -41,6 +42,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     private MenuMeseros menuMeseros;
     private Registro registro;
     private TomaDeOrden tomaDeOrden;
+    private AdministrarOrdenes administrarOrdenes;
     private static List<PlatilloDTO> listaPlatillosSeleccionados = new ArrayList<>();
     
     public static UsuarioDTO usuarioActivo = new UsuarioDTO();
@@ -259,8 +261,11 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
             
         }
     }
-    
-    
+
+    public void abrirAdministrarOrdenes() {
+        this.administrarOrdenes = new AdministrarOrdenes();
+        this.administrarOrdenes.setVisible(true);
+    }
     
 }
 
