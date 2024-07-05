@@ -134,7 +134,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
 
-        if (!usuarioActivo.getNombre().isEmpty()) {
+        if (!(usuarioActivo.getNombre() == null)) {
             boolean validacion = this.validarDatosIngresados();
 
             if (!validacion) {
@@ -151,7 +151,8 @@ public class Registro extends javax.swing.JFrame {
                 JOptionPane.showConfirmDialog(null, "Empleado registrado con exito");
                 return;
             }
-        }
+        } 
+
         boolean validacion2 = this.validarDatosIngresados();
 
         if (!validacion2) {
@@ -182,6 +183,8 @@ public class Registro extends javax.swing.JFrame {
             this.limpiarCampos();
             this.setVisible(false);
         }
+
+        
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     

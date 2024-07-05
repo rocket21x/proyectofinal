@@ -193,7 +193,8 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
         }
     }
 
-    @Override
+ 
+     @Override
     public void terminarOrden(Orden ordenBO) {
         OrdenEntity ordenEntidad = new OrdenEntity();
         ordenEntidad.setNumeroMesa(ordenBO.getNumeroMesa());
@@ -204,30 +205,28 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
 
         List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
 
-        for (PlatilloDTO platilloDTO : FacadeAdministracionSistema.listaPlatillosSeleccionados) {
+        for (PlatilloDTO platilloDTO : listaPlatillosSeleccionados) {
             PlatilloEntity platilloEntity = convertirDTOaEntity(platilloDTO);
-            
-            if (!ordenDaoImpl.existeOrdenPlatillo(ordenEntidad, platilloEntity)) {
-                OrdenPlatilloEntity ordenPlatillo = new OrdenPlatilloEntity();
-                ordenPlatillo.setOrden(ordenEntidad);
-                ordenPlatillo.setPlatillo(platilloEntity);
-                ordenPlatillos.add(ordenPlatillo);
-            }
+
+            OrdenPlatilloEntity ordenPlatillo = new OrdenPlatilloEntity();
+            ordenPlatillo.setOrden(ordenEntidad);
+            ordenPlatillo.setPlatillo(platilloEntity);
+            ordenPlatillos.add(ordenPlatillo);
         }
 
         ordenEntidad.setOrdenPlatillos(ordenPlatillos);
-
-        try {
-            this.ordenDaoImpl.crear(ordenEntidad);
-            FacadeAdministracionSistema.listaPlatillosSeleccionados.clear();
-            JOptionPane.showMessageDialog(null, "Se ha creado la orden");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al crear la orden: " + e.getMessage());
-        }
+         try {
+             this.ordenDaoImpl.crear(ordenEntidad);
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Comprueba que no alla platillos repetidos");
+         }
+        
+        FacadeAdministracionSistema.listaPlatillosSeleccionados.clear();
+        JOptionPane.showMessageDialog(null, "Se ha creado la orden");
     }
 
-  
+
+   
     
     private PlatilloEntity convertirDTOaEntity(PlatilloDTO platilloDTO) {
         PlatilloEntity platilloEntity = new PlatilloEntity();

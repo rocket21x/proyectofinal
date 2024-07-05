@@ -41,6 +41,7 @@ presentacion\MenuMeseros$3.class
 presentacion\Registro$2.class
 presentacion\TomaDeOrden$10.class
 presentacion\AdministrarOrdenes$6.class
+presentacion\Inventario$6.class
 presentacion\TomaDeOrden$2.class
 negocio\FacadeAdministracionSistema.class
 presentacion\TomaDeOrden$12.class

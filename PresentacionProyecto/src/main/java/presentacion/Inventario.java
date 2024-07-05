@@ -117,7 +117,15 @@ public class Inventario extends javax.swing.JFrame {
             new String [] {
                 "Id", "Nombre", "Descripcion", "Precio", "Cantidad"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tablaPlatillos.setSelectionBackground(new java.awt.Color(51, 255, 51));
         jScrollPane1.setViewportView(tablaPlatillos);
 

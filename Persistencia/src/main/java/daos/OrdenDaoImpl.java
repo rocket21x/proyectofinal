@@ -54,18 +54,5 @@ public class OrdenDaoImpl implements IDao<OrdenEntity> {
         em.getTransaction().commit();
     }
     
-    public boolean existeOrdenPlatillo(OrdenEntity orden, PlatilloEntity platillo) {
-        try {
-            String jpql = "SELECT op FROM OrdenPlatilloEntity op WHERE op.orden = :orden AND op.platillo = :platillo";
-            TypedQuery<OrdenPlatilloEntity> query = em.createQuery(jpql, OrdenPlatilloEntity.class);
-            query.setParameter("orden", orden);
-            query.setParameter("platillo", platillo);
-            
-            List<OrdenPlatilloEntity> result = query.getResultList();
-            return !result.isEmpty();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+ 
 }
