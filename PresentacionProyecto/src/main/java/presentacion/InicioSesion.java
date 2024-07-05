@@ -14,6 +14,7 @@ public class InicioSesion extends javax.swing.JFrame {
         this.controladorAdministracionSistema = new ControladorAdministracionSistema();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        transparenciaBtn();
     }
 
     @SuppressWarnings("unchecked")
@@ -100,6 +101,19 @@ public class InicioSesion extends javax.swing.JFrame {
     public void limpiarCampos(){
         this.txtUsuario.setText("");
         this.txtContraseña.setText("");
+    }
+    public void transparenciaBtn() {
+        
+        txtUsuario.setOpaque(false);
+        txtContraseña.setOpaque(false);
+        
+        btnIngresar.setOpaque(false);
+        btnIngresar.setContentAreaFilled(false);
+        btnIngresar.setBorderPainted(false);
+
+        btnRegistro.setOpaque(false);
+        btnRegistro.setContentAreaFilled(false);
+        btnRegistro.setBorderPainted(false);
     }
     
     public static void main(String args[]) {
