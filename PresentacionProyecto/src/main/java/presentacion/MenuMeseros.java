@@ -3,6 +3,7 @@ package presentacion;
 
 import javax.swing.table.DefaultTableModel;
 import negocio.ControladorAdministracionSistema;
+import static negocio.FacadeAdministracionSistema.usuarioActivo;
 
 public class MenuMeseros extends javax.swing.JFrame {
 
@@ -156,7 +157,10 @@ public class MenuMeseros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarOrdenActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
+        usuarioActivo.setNombre("");
+        usuarioActivo.setContraseña("");
+        this.controladorAdministracionSistema.abrirInicioSesion();
+        this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
