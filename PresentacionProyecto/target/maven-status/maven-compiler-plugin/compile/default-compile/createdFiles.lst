@@ -1,6 +1,7 @@
 presentacion\MenuCocinero.class
 presentacion\Registro$1.class
 presentacion\Inventario$5.class
+presentacion\AdministrarOrdenes$5.class
 presentacion\TomaDeOrden$3.class
 negocio\IAdministracionSistema.class
 presentacion\AdministrarOrdenes.class

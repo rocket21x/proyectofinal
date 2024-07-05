@@ -169,7 +169,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
             ordenDTO.setNumeroMesa(numeroMesa);
             ordenDTO.setNumeroOrden(numeroOrden);
             ordenDTO.setNotas(notas);
-            ordenDTO.setEstado("Pendiente1");
+            ordenDTO.setEstado("Pendiente");
 
             this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
             this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
