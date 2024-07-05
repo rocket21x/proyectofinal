@@ -89,14 +89,14 @@ public class Tarjeta extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         txtTotal.setEditable(false);
-        txtTotal.setForeground(new java.awt.Color(255, 255, 255));
+        txtTotal.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Su pago:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
-        txtPago.setForeground(new java.awt.Color(255, 255, 255));
+        txtPago.setForeground(new java.awt.Color(0, 0, 0));
         txtPago.setText("               ");
         txtPago.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -110,7 +110,7 @@ public class Tarjeta extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 9, -1, -1));
 
         txtNoOrden.setEditable(false);
-        txtNoOrden.setForeground(new java.awt.Color(255, 255, 255));
+        txtNoOrden.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtNoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 6, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,7 +118,7 @@ public class Tarjeta extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         txtMesa.setEditable(false);
-        txtMesa.setForeground(new java.awt.Color(255, 255, 255));
+        txtMesa.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 330, 110));
@@ -128,16 +128,22 @@ public class Tarjeta extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tarjeta:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        TxtNumeroTarjeta.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtNumeroTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("MM/AA");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        TxtFechaCaducidad.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 50, -1));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CVV");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+
+        TxtCVV.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(TxtCVV, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 50, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 210, 90));

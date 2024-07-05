@@ -53,12 +53,12 @@ public class Confirmacion extends javax.swing.JFrame {
         getContentPane().add(BtnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 170, 90));
 
         txtNoOrden.setEditable(false);
-        txtNoOrden.setBackground(new java.awt.Color(0, 0, 255));
+        txtNoOrden.setBackground(new java.awt.Color(255, 255, 255));
         txtNoOrden.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 48)); // NOI18N
-        txtNoOrden.setForeground(new java.awt.Color(255, 255, 255));
+        txtNoOrden.setForeground(new java.awt.Color(0, 0, 0));
         txtNoOrden.setText("#");
         txtNoOrden.setBorder(null);
-        getContentPane().add(txtNoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 90, 70));
+        getContentPane().add(txtNoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 90, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/M/pago_Confirmado.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

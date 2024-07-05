@@ -24,6 +24,7 @@ import presentacion.Inventario;
 import presentacion.Menu;
 import presentacion.MenuCocinero;
 import presentacion.MenuMeseros;
+import presentacion.PagoInicio;
 import presentacion.Registro;
 import presentacion.TomaDeOrden;
 
@@ -36,6 +37,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
     private InicioSesion inicioSesion;
     private Inventario inventario;
     private Menu menu;
+    private PagoInicio pagoInicio;
     private MenuCocinero menuCocinero;
     private MenuMeseros menuMeseros;
     private Registro registro;
@@ -283,8 +285,8 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
     }
 
     public void abrirPagoInicio() {
-//        this.pagoInicio = new PagoInicio();
-        // this.pagoInicio.setVisible(true);       
+        this.pagoInicio = new PagoInicio();
+        this.pagoInicio.setVisible(true);       
     }
 
 }

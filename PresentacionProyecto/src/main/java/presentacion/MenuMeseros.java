@@ -125,7 +125,7 @@ public class MenuMeseros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(this, "Caracteristica en desarrollo.");
+        this.controladorAdministracionSistema.abrirPagoInicio();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

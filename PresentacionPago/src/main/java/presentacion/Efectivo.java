@@ -81,14 +81,14 @@ public class Efectivo extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         txtTotal.setEditable(false);
-        txtTotal.setForeground(new java.awt.Color(255, 255, 255));
+        txtTotal.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Su pago:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
-        txtPago.setForeground(new java.awt.Color(255, 255, 255));
+        txtPago.setForeground(new java.awt.Color(0, 0, 0));
         txtPago.setText("               ");
         txtPago.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -102,7 +102,7 @@ public class Efectivo extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 9, -1, -1));
 
         txtNoOrden.setEditable(false);
-        txtNoOrden.setForeground(new java.awt.Color(255, 255, 255));
+        txtNoOrden.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtNoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 6, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,7 +110,7 @@ public class Efectivo extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         txtMesa.setEditable(false);
-        txtMesa.setForeground(new java.awt.Color(255, 255, 255));
+        txtMesa.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 330, 110));
@@ -120,6 +120,8 @@ public class Efectivo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cambio:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        txtCambio.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(txtCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 110, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, 60));
