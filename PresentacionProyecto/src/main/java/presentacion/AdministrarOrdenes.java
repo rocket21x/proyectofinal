@@ -45,7 +45,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -148,7 +148,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPendienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendienteActionPerformed
-        // TODO add your handling code here:
+      
         int registroSeleccionado = tablaOrdenes.getSelectedRow();
         if (registroSeleccionado != -1) {
             DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
@@ -163,7 +163,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
             ordenDTO.setId(idOrden);
             ordenDTO.setNumeroMesa(numeroMesa);
             ordenDTO.setNumeroOrden(numeroOrden);
-            ordenDTO.setNotas(notas.toString());
+            ordenDTO.setNotas(notas);
             ordenDTO.setEstado("Pendiente1");
 
             this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);

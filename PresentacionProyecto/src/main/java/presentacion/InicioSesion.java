@@ -80,7 +80,7 @@ public class InicioSesion extends javax.swing.JFrame {
             usuarioDTO.setContraseña(contraseña);
 
             this.controladorAdministracionSistema.iniciarSesion(usuarioDTO);
-
+            this.setVisible(false);
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
