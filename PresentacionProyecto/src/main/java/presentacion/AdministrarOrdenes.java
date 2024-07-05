@@ -70,6 +70,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ordenes activas");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, -1));
 
@@ -89,6 +90,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 520, 369));
 
         jLabel2.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Platillos de la orden");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 400, -1));
 
@@ -145,6 +147,11 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
         btnCancelar.setText("Cancelado");
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 310, 110));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
@@ -193,7 +200,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
     }
 
     private void btnPreparandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreparandoActionPerformed
-        // TODO add your handling code here:
+       
         int registroSeleccionado = tablaOrdenes.getSelectedRow();
         if (registroSeleccionado != -1) {
             DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
@@ -253,6 +260,29 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
         this.setVisible(false);
         this.controladorAdministracionSistema.abrirMenuCocinero();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        int registroSeleccionado = tablaOrdenes.getSelectedRow();
+        if (registroSeleccionado != -1) {
+            DefaultTableModel model = (DefaultTableModel) tablaOrdenes.getModel();
+
+            Long idOrden = (Long) model.getValueAt(registroSeleccionado, 0);
+            Integer numeroMesa = (Integer) model.getValueAt(registroSeleccionado, 1);
+            Integer numeroOrden = (Integer) model.getValueAt(registroSeleccionado, 2);
+            String notas = (String) model.getValueAt(registroSeleccionado, 3);
+
+            OrdenDTO ordenDTO = new OrdenDTO();
+
+            ordenDTO.setId(idOrden);
+            ordenDTO.setNumeroMesa(numeroMesa);
+            ordenDTO.setNumeroOrden(numeroOrden);
+            ordenDTO.setNotas(notas);
+            ordenDTO.setEstado("Cancelado");
+
+            this.controladorAdministracionSistema.actualizarTablaOrdenPlatillo((DefaultTableModel) tablaPlatillosOrden.getModel(), idOrden);
+            this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
+            this.controladorAdministracionSistema.actualizarTablaOrdenes(model);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     public static void main(String args[]) {

@@ -305,8 +305,17 @@ public class TomaDeOrden extends javax.swing.JFrame {
             return;
         }
 
-        int numMesa = Integer.parseInt(this.lblNumeroMesa.getText());
+        if (lblTotal.getText().isEmpty() || !isNumeric(lblTotal.getText())) {
+            JOptionPane.showMessageDialog(this, "El total no es válido.");
+            return;
+        }
 
+        if (tablaOrdenPlatillos.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "Debe haber al menos un platillo en la orden.");
+            return;
+        }
+
+        int numMesa = Integer.parseInt(this.lblNumeroMesa.getText());
         int numeroOrden = (int) (System.currentTimeMillis() & 0xffffff);
 
         OrdenDTO ordenDTO = new OrdenDTO();
@@ -325,10 +334,19 @@ public class TomaDeOrden extends javax.swing.JFrame {
         lblNumeroMesa.setText("");
         txtNota.setText("");
         lblTotal.setText("0.00");
-        this.total = 0.0; 
+        this.total = 0.0;
 
     }//GEN-LAST:event_btnTerminarOrdenActionPerformed
 
+    private boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    
     private void btnSumarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarCantidadActionPerformed
         
         int registro = this.tablaOrdenPlatillos.getSelectedRow();
