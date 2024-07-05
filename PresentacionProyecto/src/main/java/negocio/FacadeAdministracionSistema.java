@@ -1,5 +1,6 @@
 package negocio;
 
+import com.mysql.cj.Query;
 import daos.OrdenDaoImpl;
 import daos.OrdenPlatilloDaoImpl;
 import daos.PlatilloDaoImpl;
@@ -203,22 +204,31 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
 
         List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
 
-        for (PlatilloDTO platilloDTO : listaPlatillosSeleccionados) {
+        for (PlatilloDTO platilloDTO : FacadeAdministracionSistema.listaPlatillosSeleccionados) {
             PlatilloEntity platilloEntity = convertirDTOaEntity(platilloDTO);
-
-            OrdenPlatilloEntity ordenPlatillo = new OrdenPlatilloEntity();
-            ordenPlatillo.setOrden(ordenEntidad);
-            ordenPlatillo.setPlatillo(platilloEntity);
-            ordenPlatillos.add(ordenPlatillo);
+            
+            if (!ordenDaoImpl.existeOrdenPlatillo(ordenEntidad, platilloEntity)) {
+                OrdenPlatilloEntity ordenPlatillo = new OrdenPlatilloEntity();
+                ordenPlatillo.setOrden(ordenEntidad);
+                ordenPlatillo.setPlatillo(platilloEntity);
+                ordenPlatillos.add(ordenPlatillo);
+            }
         }
 
         ordenEntidad.setOrdenPlatillos(ordenPlatillos);
 
-        this.ordenDaoImpl.crear(ordenEntidad);
-        FacadeAdministracionSistema.listaPlatillosSeleccionados.clear();
-        JOptionPane.showMessageDialog(null, "Se ha creado la orden");
+        try {
+            this.ordenDaoImpl.crear(ordenEntidad);
+            FacadeAdministracionSistema.listaPlatillosSeleccionados.clear();
+            JOptionPane.showMessageDialog(null, "Se ha creado la orden");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al crear la orden: " + e.getMessage());
+        }
     }
 
+  
+    
     private PlatilloEntity convertirDTOaEntity(PlatilloDTO platilloDTO) {
         PlatilloEntity platilloEntity = new PlatilloEntity();
         platilloEntity.setIdPlatillo(platilloDTO.getId());

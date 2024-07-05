@@ -1,6 +1,7 @@
 
 package presentacion;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.ControladorAdministracionSistema;
 import static negocio.FacadeAdministracionSistema.usuarioActivo;
@@ -124,8 +125,7 @@ public class MenuMeseros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.controladorAdministracionSistema.abrirPagoInicio();
-        this.setVisible(false);
+        JOptionPane.showMessageDialog(this, "Caracteristica en desarrollo.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
