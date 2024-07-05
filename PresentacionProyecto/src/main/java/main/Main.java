@@ -10,6 +10,7 @@ public class Main {
          ControladorAdministracionSistema controladorAdministracionSistema = new ControladorAdministracionSistema();
          controladorAdministracionSistema.abrirInicioSesion();
          
+         
     }
      
 }
