@@ -89,4 +89,10 @@ public class ControladorAdministracionSistema {
         this.facadeAdministracionSistema.terminarOrden(orderBO);
         
     }
+    public void actualizarOrden(OrdenDTO orden){
+        this.facadeAdministracionSistema.actualizarOrden(orden);
+    }
+    public void actualizarTablaOrdenPlatillo(DefaultTableModel modelo, Long id){
+        this.facadeAdministracionSistema.actualizarTablaOrdenPlatillo(modelo,id);
+    }
 }

@@ -28,6 +28,7 @@ presentacion\TomaDeOrden$13.class
 negocio\ControladorAdministracionSistema.class
 presentacion\Inventario$3.class
 presentacion\TomaDeOrden$5.class
+presentacion\AdministrarOrdenes$3.class
 presentacion\InicioSesion$3.class
 presentacion\MenuMeseros$3.class
 presentacion\Registro$2.class

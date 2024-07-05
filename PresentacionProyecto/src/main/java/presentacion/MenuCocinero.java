@@ -69,6 +69,8 @@ public class MenuCocinero extends javax.swing.JFrame {
 
     private void BtnTomarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTomarOrdenActionPerformed
         // TODO add your handling code here:
+        AdministrarOrdenes ad = new AdministrarOrdenes();
+        ad.setVisible(true);
     }//GEN-LAST:event_BtnTomarOrdenActionPerformed
 
     /**

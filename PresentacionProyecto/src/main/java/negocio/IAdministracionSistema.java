@@ -1,6 +1,7 @@
 
 package negocio;
 
+import dtos.OrdenDTO;
 import dtos.PlatilloDTO;
 import javax.swing.table.DefaultTableModel;
 import objetoNegocio.Orden;
@@ -25,6 +26,8 @@ public interface IAdministracionSistema {
     void sumarPlatilloCantidad(PlatilloDTO platilloDTO);
     void restarPlatilloCantidad(PlatilloDTO platilloDTO);
     void terminarOrden(Orden orderBO);
+    void actualizarOrden(OrdenDTO orden);
+    void actualizarTablaOrdenPlatillo(DefaultTableModel modelo,Long id);
     
     
 }

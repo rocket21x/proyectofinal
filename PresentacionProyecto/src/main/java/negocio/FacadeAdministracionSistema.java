@@ -2,8 +2,10 @@
 package negocio;
 
 import daos.OrdenDaoImpl;
+import daos.OrdenPlatilloDaoImpl;
 import daos.PlatilloDaoImpl;
 import daos.UsuarioDaoImpl;
+import dtos.OrdenDTO;
 import dtos.PlatilloDTO;
 import dtos.UsuarioDTO;
 import entidades.OrdenEntity;
@@ -13,6 +15,7 @@ import entidades.UsuarioEntity;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import objetoNegocio.Orden;
@@ -30,6 +33,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     private PlatilloDaoImpl platilloDaoImpl;
     private OrdenDaoImpl ordenDaoImpl;
     private UsuarioDaoImpl usuarioDaoImpl;
+    private OrdenPlatilloDaoImpl ordenplatilloDAOImpl;
     private InicioSesion inicioSesion;
     private Inventario inventario;
     private Menu menu;
@@ -45,6 +49,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
         this.platilloDaoImpl = new PlatilloDaoImpl();
         this.ordenDaoImpl = new OrdenDaoImpl();
         this.usuarioDaoImpl = new UsuarioDaoImpl();
+        this.ordenplatilloDAOImpl = new OrdenPlatilloDaoImpl();
     }
     
     @Override
@@ -126,6 +131,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
             modelo.addRow(fila);
         }
     }
+    
 
     @Override
     public void abrirTomaDeOrden() {
@@ -213,6 +219,43 @@ public class FacadeAdministracionSistema implements IAdministracionSistema{
     platilloEntity.setDescripcion(platilloDTO.getDescripcion());
     return platilloEntity;
 }
+
+    @Override
+    public void actualizarOrden(OrdenDTO orden) {
+        OrdenEntity ordenEntidad = new OrdenEntity();
+        ordenEntidad.setId(orden.getId());
+        ordenEntidad.setNumeroMesa(orden.getNumeroMesa());
+        ordenEntidad.setNumeroOrden(orden.getNumeroOrden());
+        ordenEntidad.setEstado(orden.getEstado());
+        
+        List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
+
+        for (PlatilloDTO platilloDTO : listaPlatillosSeleccionados) {
+            PlatilloEntity platilloEntity = convertirDTOaEntity(platilloDTO);
+
+            OrdenPlatilloEntity ordenPlatillo = new OrdenPlatilloEntity();
+            ordenPlatillo.setOrden(ordenEntidad);
+            ordenPlatillo.setPlatillo(platilloEntity);
+            ordenPlatillos.add(ordenPlatillo);
+        }
+        ordenEntidad.setOrdenPlatillos(ordenPlatillos);
+        
+        this.ordenDaoImpl.actualizar(ordenEntidad);
+    }
+
+    @Override
+    public void actualizarTablaOrdenPlatillo(DefaultTableModel modelo,Long id) {
+        
+        List<OrdenPlatilloEntity> listaOrdenes = this.ordenplatilloDAOImpl.obtenerTodos();
+        List<PlatilloEntity> platillos = this.platilloDaoImpl.obtenerTodos();
+        modelo.setRowCount(0);
+        for (OrdenPlatilloEntity orden : listaOrdenes) {
+            Object[] fila = {orden.getOrden().getId(),orden.getPlatillo().getNombre()};
+            modelo.addRow(fila);
+        }
+    }
+    
     
     
 }
+

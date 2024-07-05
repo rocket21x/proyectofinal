@@ -9,6 +9,18 @@ public class OrdenPlatillo {
 
     private Platillo platillo;
 
+    public OrdenPlatillo(OrdenPlatilloId id, Orden orden, Platillo platillo) {
+        this.id = id;
+        this.orden = orden;
+        this.platillo = platillo;
+    }
+
+    public OrdenPlatillo(Orden orden, Platillo platillo) {
+        this.orden = orden;
+        this.platillo = platillo;
+    }
+    
+
     public OrdenPlatilloId getId() {
         return id;
     }
