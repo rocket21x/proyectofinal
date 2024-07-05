@@ -99,12 +99,12 @@ public class TomaDeOrden extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 500, 430));
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione los platillos:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 18, 220, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 18, 320, -1));
 
-        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Platillos de la orden:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 280, -1));
@@ -118,7 +118,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnMesa2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, 129, 73));
+        getContentPane().add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 129, 73));
 
         btnMesa3.setBackground(new java.awt.Color(255, 255, 255));
         btnMesa3.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
@@ -129,7 +129,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnMesa3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 129, 73));
+        getContentPane().add(btnMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 129, 73));
 
         btnMesa1.setBackground(new java.awt.Color(255, 255, 255));
         btnMesa1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
@@ -140,7 +140,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnMesa1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 129, 73));
+        getContentPane().add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 129, 73));
 
         btnMesa5.setBackground(new java.awt.Color(255, 255, 255));
         btnMesa5.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
@@ -151,7 +151,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnMesa5ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 620, 129, 73));
+        getContentPane().add(btnMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, 129, 73));
 
         btnMesa6.setBackground(new java.awt.Color(255, 255, 255));
         btnMesa6.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
@@ -162,7 +162,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnMesa6ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 620, 129, 73));
+        getContentPane().add(btnMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, 129, 73));
 
         btnMesa4.setBackground(new java.awt.Color(255, 255, 255));
         btnMesa4.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
@@ -173,7 +173,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnMesa4ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 129, 73));
+        getContentPane().add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 620, 129, 73));
 
         btnAgregarPlatillo.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregarPlatillo.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -184,7 +184,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnAgregarPlatilloActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 180, 40));
+        getContentPane().add(btnAgregarPlatillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 180, 40));
 
         btnRestarCantidad.setBackground(new java.awt.Color(255, 255, 255));
         btnRestarCantidad.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -195,7 +195,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnRestarCantidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRestarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 520, 140, 40));
+        getContentPane().add(btnRestarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 530, 140, 40));
 
         btnSumarCantidad.setBackground(new java.awt.Color(255, 255, 255));
         btnSumarCantidad.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -206,7 +206,7 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnSumarCantidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSumarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 520, 120, 40));
+        getContentPane().add(btnSumarCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 530, 140, 40));
 
         btnTerminarOrden.setBackground(new java.awt.Color(255, 255, 255));
         btnTerminarOrden.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -217,20 +217,26 @@ public class TomaDeOrden extends javax.swing.JFrame {
                 btnTerminarOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTerminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 180, 40));
+        getContentPane().add(btnTerminarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 590, 180, 40));
 
-        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Seleccionar Mesa:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Agregar Nota adicional:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 590, -1, -1));
-        getContentPane().add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 620, 290, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 600, -1, -1));
 
-        lblNumeroMesa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtNota.setBackground(new java.awt.Color(255, 255, 255));
+        txtNota.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        txtNota.setForeground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 650, 290, 40));
+
+        lblNumeroMesa.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         lblNumeroMesa.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 50, 20));
+        getContentPane().add(lblNumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 50, 30));
 
         btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
