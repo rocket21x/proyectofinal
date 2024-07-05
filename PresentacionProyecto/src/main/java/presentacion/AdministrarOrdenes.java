@@ -283,7 +283,7 @@ public class AdministrarOrdenes extends javax.swing.JFrame {
             this.controladorAdministracionSistema.actualizarOrden(ordenDTO);
             this.controladorAdministracionSistema.actualizarTablaOrdenes(model);
     }//GEN-LAST:event_btnCancelarActionPerformed
-
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
