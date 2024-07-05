@@ -13,6 +13,7 @@ presentacion\TomaDeOrden$7.class
 presentacion\Registro.class
 presentacion\MenuCocinero$2.class
 presentacion\MenuCocinero$1.class
+presentacion\MenuMeseros$4.class
 presentacion\TomaDeOrden$9.class
 presentacion\Menu$2.class
 presentacion\Menu.class
@@ -41,6 +42,7 @@ presentacion\AdministrarOrdenes$4.class
 presentacion\Inventario$4.class
 presentacion\TomaDeOrden$4.class
 presentacion\InicioSesion$2.class
+presentacion\MenuCocinero$3.class
 presentacion\Menu$1.class
 presentacion\TomaDeOrden$1.class
 presentacion\Menu$4.class
