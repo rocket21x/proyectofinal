@@ -48,11 +48,11 @@ public class ControladorAdministracionSistema {
         this.facadeAdministracionSistema.abrirInventario();
     }
     
-    public void iniciarSesion(UsuarioDTO usuarioDTO){
+    public boolean iniciarSesion(UsuarioDTO usuarioDTO){
         Usuario usuarioBO = new Usuario();
         usuarioBO.setNombre(usuarioDTO.getNombre());
         usuarioBO.setContraseña(usuarioDTO.getContraseña());
-        this.facadeAdministracionSistema.iniciarSesion(usuarioBO);
+        return this.facadeAdministracionSistema.iniciarSesion(usuarioBO);
     }
 
     public void abrirTomaDeOrden() {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.ControladorAdministracionSistema;
+import negocio.FacadeAdministracionSistema;
 
 
 public class TomaDeOrden extends javax.swing.JFrame {
@@ -412,8 +413,16 @@ public class TomaDeOrden extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMesa6ActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        this.setVisible(false);
+       
+        if ("Gerente".equals(FacadeAdministracionSistema.usuarioActivo.getRol())) {
+             this.setVisible(false);
+            this.controladorAdministracionSistema.abrirMenu();
+        }else{
+            this.setVisible(false);
         this.controladorAdministracionSistema.abrirMenuMesero();
+
+        }
+        
     }//GEN-LAST:event_btnVolverActionPerformed
 
     public void sumarTotal(Double precio) {

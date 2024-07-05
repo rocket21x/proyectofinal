@@ -122,10 +122,14 @@ public class InicioSesion extends javax.swing.JFrame {
             UsuarioDTO usuarioDTO = new UsuarioDTO();
             usuarioDTO.setNombre(txtUsuario.getText());
             usuarioDTO.setContraseña(contraseña);
-
             
-            this.controladorAdministracionSistema.iniciarSesion(usuarioDTO);
-            this.setVisible(false);
+            
+            boolean autenticacion = this.controladorAdministracionSistema.iniciarSesion(usuarioDTO);
+            if (autenticacion) {
+                this.setVisible(false);
+            }else{
+                this.limpiarCampos();
+            }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

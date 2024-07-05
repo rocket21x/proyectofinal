@@ -69,11 +69,11 @@ public class MenuMeseros extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Mesa", "Numero Orden", "Notas", "Estado"
+                "Id Orden", "Numero Mesa", "Numero Orden", "Notas", "Title 5"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

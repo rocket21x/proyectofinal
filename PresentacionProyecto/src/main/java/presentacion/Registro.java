@@ -5,6 +5,7 @@ import dtos.UsuarioDTO;
 import javax.swing.JOptionPane;
 import negocio.ControladorAdministracionSistema;
 import negocio.ControladorAgregarUsuario;
+import static negocio.FacadeAdministracionSistema.usuarioActivo;
 
 public class Registro extends javax.swing.JFrame {
 
@@ -118,16 +119,42 @@ public class Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        this.setVisible(false);
-        this.controladorAdministracionSistema.abrirInicioSesion();
+        
+        if (usuarioActivo.getNombre().isEmpty()) {
+            this.setVisible(false);
+            this.controladorAdministracionSistema.abrirInicioSesion();
+        }else{
+            this.setVisible(false);
+            this.controladorAdministracionSistema.abrirMenu();
+        }
+        
+        
         
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
 
-        boolean validacion = this.validarDatosIngresados();
+        if (!usuarioActivo.getNombre().isEmpty()) {
+            boolean validacion = this.validarDatosIngresados();
 
-        if (!validacion) {
+            if (!validacion) {
+                System.out.println("Campos vacios.");
+            } else {
+                char[] contraseñaArray = txtContraseña.getPassword();
+                String contraseña = new String(contraseñaArray).trim();
+
+                UsuarioDTO usuarioDTO = new UsuarioDTO();
+                usuarioDTO.setNombre(txtNombre.getText());
+                usuarioDTO.setContraseña(contraseña);
+                usuarioDTO.setRol(cbRoles.getSelectedItem().toString());
+                this.controladorAgregarUsuario.agregarUsuario(usuarioDTO);
+                JOptionPane.showConfirmDialog(null, "Empleado registrado con exito");
+                return;
+            }
+        }
+        boolean validacion2 = this.validarDatosIngresados();
+
+        if (!validacion2) {
             System.out.println("Campos vacios.");
         } else {
             char[] contraseñaArray = txtContraseña.getPassword();
@@ -138,20 +165,27 @@ public class Registro extends javax.swing.JFrame {
             usuarioDTO.setContraseña(contraseña);
             usuarioDTO.setRol(cbRoles.getSelectedItem().toString());
             this.controladorAgregarUsuario.agregarUsuario(usuarioDTO);
-            
-            if (null != usuarioDTO.getRol()) switch (usuarioDTO.getRol()) {
-                    case "Gerente" -> this.controladorAdministracionSistema.abrirMenu();
-                    case "Mesero" -> this.controladorAdministracionSistema.abrirMenuMesero();
-                    case "Cocinero" -> this.controladorAdministracionSistema.abrirMenuCocinero();
+
+            if (null != usuarioDTO.getRol()) {
+                switch (usuarioDTO.getRol()) {
+                    case "Gerente" ->
+                        this.controladorAdministracionSistema.abrirMenu();
+                    case "Mesero" ->
+                        this.controladorAdministracionSistema.abrirMenuMesero();
+                    case "Cocinero" ->
+                        this.controladorAdministracionSistema.abrirMenuCocinero();
                     default -> {
                     }
                 }
-            
+            }
+
             this.limpiarCampos();
             this.setVisible(false);
         }
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
+    
+    
     public boolean validarDatosIngresados(){
         String nombre = txtNombre.getText().trim();
         char[] contraseñaArray = txtContraseña.getPassword();

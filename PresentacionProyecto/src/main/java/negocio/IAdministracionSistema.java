@@ -21,7 +21,7 @@ public interface IAdministracionSistema {
     void abrirInventario();
     void abrirTomaDeOrden();
     void abrirPagoInicio();
-    void iniciarSesion(Usuario usuarioBO);
+    boolean iniciarSesion(Usuario usuarioBO);
     void agregarPlatilloSeleccionado(PlatilloDTO platilloDTO);
     void eliminarPlatilloSeleccionado(PlatilloDTO platilloDTO);
     void sumarPlatilloCantidad(PlatilloDTO platilloDTO);

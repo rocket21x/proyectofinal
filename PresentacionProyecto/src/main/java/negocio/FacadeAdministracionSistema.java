@@ -90,7 +90,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
     }
 
     @Override
-    public void iniciarSesion(Usuario usuarioBO) {
+    public boolean iniciarSesion(Usuario usuarioBO) {
         List<UsuarioEntity> listaUsuarios = this.usuarioDaoImpl.obtenerTodos();
         for (UsuarioEntity usuarioEntity : listaUsuarios) {
             if (usuarioEntity.getNombre().equals(usuarioBO.getNombre())
@@ -98,6 +98,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
                 JOptionPane.showMessageDialog(null, "Autenticación exitosa", "Inicio de Sesión", JOptionPane.INFORMATION_MESSAGE);
                 usuarioActivo.setNombre(usuarioBO.getNombre());
                 usuarioActivo.setContraseña(usuarioBO.getContraseña());
+                usuarioActivo.setRol(usuarioEntity.getRol());
                 if (null != usuarioEntity.getRol()) {
                     switch (usuarioEntity.getRol()) {
                         case "Gerente" ->
@@ -110,10 +111,11 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
                         }
                     }
                 }
-                return;
+                return true;
             }
         }
         JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
+        return false;
     }
 
     @Override
@@ -233,6 +235,7 @@ public class FacadeAdministracionSistema implements IAdministracionSistema {
         ordenEntidad.setId(orden.getId());
         ordenEntidad.setNumeroMesa(orden.getNumeroMesa());
         ordenEntidad.setNumeroOrden(orden.getNumeroOrden());
+        ordenEntidad.setNotas(orden.getNotas());
         ordenEntidad.setEstado(orden.getEstado());
 
         List<OrdenPlatilloEntity> ordenPlatillos = new ArrayList<>();
