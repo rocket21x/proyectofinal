@@ -1,63 +1,55 @@
 package daos;
 
 import objetoNegocio.Pago;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-public class PagoDaoImpl {
+public class PagoDaoImpl implements IDao<Pago>{
 
-    public void agregarPago(Pago pago) throws SQLException {
-        String sql = "INSERT INTO Pagos (monto, descripcion, metodoPago) VALUES (?, ?, ?)";
-        Connection connection = ConexionDB.getConnection(); 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setFloat(1, pago.getMonto());
-            statement.setString(2, pago.getDescripcion());
-            statement.setString(3, pago.getMetodoPago());
+   private EntityManagerFactory emf;
+    private EntityManager em;
 
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw e;
-        }
+    public PagoDaoImpl() {
+        this.emf = Persistence.createEntityManagerFactory("default");
+        this.em = emf.createEntityManager();
     }
 
-    public List<Pago> listarPagos() throws SQLException {
-        List<Pago> pagos = new ArrayList<>();
-        String sql = "SELECT * FROM Pagos";
-        try (Connection conn = ConexionDB.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                Pago pago = new Pago();
-                pago.setId(rs.getInt("id"));
-                pago.setId(rs.getInt("orden_id"));
-                pago.setMetodoPago(rs.getString("metodo_pago"));
-                pago.setMonto(rs.getFloat("monto"));
-                //pago.setFecha(rs.getTimestamp("fecha"));
-                pago.setFecha(rs.getString("fecha"));
-                pagos.add(pago);
-            }
-        }
-        return pagos;
+    @Override
+    public void crear(Pago entidad) {
+        em.getTransaction().begin();
+        em.persist(entidad);
+        em.getTransaction().commit();
+        System.out.println("Se ha agregado el pago a la base de datos exitosamente.");
     }
 
-    public Pago getPago(int Id) throws SQLException {
-        String sql = "SELECT * FROM Pagos where id = " + Id;
-        Pago pago = new Pago();
-        try (Connection conn = ConexionDB.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                pago.setId(rs.getInt("id"));
-                pago.setId(rs.getInt("orden_id"));
-                pago.setMetodoPago(rs.getString("metodo_pago"));
-                pago.setMonto(rs.getFloat("monto"));
-                //pago.setFecha(rs.getTimestamp("fecha"));
-                pago.setFecha(rs.getString("fecha"));
-            }
-        }
-        return pago;
+    @Override
+    public Optional<Pago> obtenerPorId(long id) {
+        Pago pago = em.find(Pago.class, id);
+        return pago != null ? Optional.of(pago) : Optional.empty();
     }
-    // Métodos para actualizar y eliminar pagos
+
+    @Override
+    public List<Pago> obtenerTodos() {
+        return em.createQuery("FROM Pago", Pago.class).getResultList();
+    }
+
+    @Override
+    public void actualizar(Pago entidad) {
+        em.getTransaction().begin();
+        em.merge(entidad);
+        em.getTransaction().commit();
+    }
+
+    @Override
+    public void eliminar(long id) {
+        em.getTransaction().begin();
+        Pago pago = em.find(Pago.class, id);
+        if (pago != null) {
+            em.remove(pago);
+        }
+        em.getTransaction().commit();
+    }
 }
